@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04A6B5596F7355F172AD63B4 /* Pods_homekit_emulatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBD46CEC2B53EBA864717E4 /* Pods_homekit_emulatorTests.framework */; };
+		2796335B4484B55FB12EACA5 /* Pods_homekit_emulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07BB3B28EF4024FF34D31E7 /* Pods_homekit_emulator.framework */; };
+		91DC3E951EEB18F2005FCEFF /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 91DC3E941EEB18F2005FCEFF /* Podfile */; };
 		91EB2CB41EEB1103003DBAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */; };
 		91EB2CB61EEB1103003DBAA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB2CB51EEB1103003DBAA9 /* ViewController.swift */; };
 		91EB2CB81EEB1103003DBAA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EB2CB71EEB1103003DBAA9 /* Assets.xcassets */; };
@@ -25,6 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10A401E768A1B0F4A8408D8B /* Pods-homekit-emulatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homekit-emulatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-homekit-emulatorTests/Pods-homekit-emulatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		4EBD46CEC2B53EBA864717E4 /* Pods_homekit_emulatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homekit_emulatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		650BF585AD5CFD7210D7657A /* Pods-homekit-emulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homekit-emulator.release.xcconfig"; path = "Pods/Target Support Files/Pods-homekit-emulator/Pods-homekit-emulator.release.xcconfig"; sourceTree = "<group>"; };
+		91DC3E941EEB18F2005FCEFF /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		91EB2CB01EEB1103003DBAA9 /* homekit-emulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "homekit-emulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91EB2CB51EEB1103003DBAA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +41,9 @@
 		91EB2CC11EEB1103003DBAA9 /* homekit-emulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "homekit-emulatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EB2CC51EEB1103003DBAA9 /* homekit_emulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homekit_emulatorTests.swift; sourceTree = "<group>"; };
 		91EB2CC71EEB1103003DBAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9C8F1395D0B4667E3052755 /* Pods-homekit-emulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homekit-emulator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-homekit-emulator/Pods-homekit-emulator.debug.xcconfig"; sourceTree = "<group>"; };
+		C07BB3B28EF4024FF34D31E7 /* Pods_homekit_emulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homekit_emulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E712D50990A46C6864840E2B /* Pods-homekit-emulatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homekit-emulatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-homekit-emulatorTests/Pods-homekit-emulatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2796335B4484B55FB12EACA5 /* Pods_homekit_emulator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A6B5596F7355F172AD63B4 /* Pods_homekit_emulatorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,9 +69,12 @@
 		91EB2CA71EEB1103003DBAA9 = {
 			isa = PBXGroup;
 			children = (
+				91DC3E941EEB18F2005FCEFF /* Podfile */,
 				91EB2CB21EEB1103003DBAA9 /* homekit-emulator */,
 				91EB2CC41EEB1103003DBAA9 /* homekit-emulatorTests */,
 				91EB2CB11EEB1103003DBAA9 /* Products */,
+				A47C2271389C452D70BB133A /* Pods */,
+				A65A917117DE650592EF4111 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +108,26 @@
 			path = "homekit-emulatorTests";
 			sourceTree = "<group>";
 		};
+		A47C2271389C452D70BB133A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9C8F1395D0B4667E3052755 /* Pods-homekit-emulator.debug.xcconfig */,
+				650BF585AD5CFD7210D7657A /* Pods-homekit-emulator.release.xcconfig */,
+				E712D50990A46C6864840E2B /* Pods-homekit-emulatorTests.debug.xcconfig */,
+				10A401E768A1B0F4A8408D8B /* Pods-homekit-emulatorTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A65A917117DE650592EF4111 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C07BB3B28EF4024FF34D31E7 /* Pods_homekit_emulator.framework */,
+				4EBD46CEC2B53EBA864717E4 /* Pods_homekit_emulatorTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -100,9 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91EB2CCA1EEB1103003DBAA9 /* Build configuration list for PBXNativeTarget "homekit-emulator" */;
 			buildPhases = (
+				D97213D3949A711DF44F6624 /* [CP] Check Pods Manifest.lock */,
 				91EB2CAC1EEB1103003DBAA9 /* Sources */,
 				91EB2CAD1EEB1103003DBAA9 /* Frameworks */,
 				91EB2CAE1EEB1103003DBAA9 /* Resources */,
+				7C43BD157C4B586CAED72C07 /* [CP] Embed Pods Frameworks */,
+				ADC63A09A0244F4686850520 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -117,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91EB2CCD1EEB1103003DBAA9 /* Build configuration list for PBXNativeTarget "homekit-emulatorTests" */;
 			buildPhases = (
+				A8AD62E1832703615EFB7855 /* [CP] Check Pods Manifest.lock */,
 				91EB2CBD1EEB1103003DBAA9 /* Sources */,
 				91EB2CBE1EEB1103003DBAA9 /* Frameworks */,
 				91EB2CBF1EEB1103003DBAA9 /* Resources */,
+				366B0C92792FA3F5DE5B5B7C /* [CP] Embed Pods Frameworks */,
+				09481317094EDE6F379A19F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -178,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91DC3E951EEB18F2005FCEFF /* Podfile in Resources */,
 				91EB2CB81EEB1103003DBAA9 /* Assets.xcassets in Resources */,
 				91EB2CBB1EEB1103003DBAA9 /* Main.storyboard in Resources */,
 			);
@@ -191,6 +233,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09481317094EDE6F379A19F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-homekit-emulatorTests/Pods-homekit-emulatorTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		366B0C92792FA3F5DE5B5B7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-homekit-emulatorTests/Pods-homekit-emulatorTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C43BD157C4B586CAED72C07 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-homekit-emulator/Pods-homekit-emulator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8AD62E1832703615EFB7855 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ADC63A09A0244F4686850520 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-homekit-emulator/Pods-homekit-emulator-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D97213D3949A711DF44F6624 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		91EB2CAC1EEB1103003DBAA9 /* Sources */ = {
@@ -326,6 +461,7 @@
 		};
 		91EB2CCB1EEB1103003DBAA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9C8F1395D0B4667E3052755 /* Pods-homekit-emulator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -340,6 +476,7 @@
 		};
 		91EB2CCC1EEB1103003DBAA9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 650BF585AD5CFD7210D7657A /* Pods-homekit-emulator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -354,6 +491,7 @@
 		};
 		91EB2CCE1EEB1103003DBAA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E712D50990A46C6864840E2B /* Pods-homekit-emulatorTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -370,6 +508,7 @@
 		};
 		91EB2CCF1EEB1103003DBAA9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10A401E768A1B0F4A8408D8B /* Pods-homekit-emulatorTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -403,6 +542,7 @@
 				91EB2CCC1EEB1103003DBAA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		91EB2CCD1EEB1103003DBAA9 /* Build configuration list for PBXNativeTarget "homekit-emulatorTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +551,7 @@
 				91EB2CCF1EEB1103003DBAA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
