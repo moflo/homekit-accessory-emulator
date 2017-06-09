@@ -2,7 +2,7 @@
 //  homekit_emulatorTests.swift
 //  homekit-emulatorTests
 //
-//  Created by d. nye on 6/9/17.
+//  Created by moflo on 6/9/17.
 //  Copyright © 2017 Mobile Flow LLC. All rights reserved.
 //
 
