@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		91EB2CB41EEB1103003DBAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */; };
+		91EB2CB61EEB1103003DBAA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB2CB51EEB1103003DBAA9 /* ViewController.swift */; };
+		91EB2CB81EEB1103003DBAA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EB2CB71EEB1103003DBAA9 /* Assets.xcassets */; };
+		91EB2CBB1EEB1103003DBAA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91EB2CB91EEB1103003DBAA9 /* Main.storyboard */; };
+		91EB2CC61EEB1103003DBAA9 /* homekit_emulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB2CC51EEB1103003DBAA9 /* homekit_emulatorTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		91EB2CC21EEB1103003DBAA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91EB2CA81EEB1103003DBAA9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91EB2CAF1EEB1103003DBAA9;
+			remoteInfo = "homekit-emulator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		91EB2CB01EEB1103003DBAA9 /* homekit-emulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "homekit-emulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		91EB2CB51EEB1103003DBAA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		91EB2CB71EEB1103003DBAA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		91EB2CBA1EEB1103003DBAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		91EB2CBC1EEB1103003DBAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91EB2CC11EEB1103003DBAA9 /* homekit-emulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "homekit-emulatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		91EB2CC51EEB1103003DBAA9 /* homekit_emulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homekit_emulatorTests.swift; sourceTree = "<group>"; };
+		91EB2CC71EEB1103003DBAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		91EB2CAD1EEB1103003DBAA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91EB2CBE1EEB1103003DBAA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		91EB2CA71EEB1103003DBAA9 = {
+			isa = PBXGroup;
+			children = (
+				91EB2CB21EEB1103003DBAA9 /* homekit-emulator */,
+				91EB2CC41EEB1103003DBAA9 /* homekit-emulatorTests */,
+				91EB2CB11EEB1103003DBAA9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		91EB2CB11EEB1103003DBAA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				91EB2CB01EEB1103003DBAA9 /* homekit-emulator.app */,
+				91EB2CC11EEB1103003DBAA9 /* homekit-emulatorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		91EB2CB21EEB1103003DBAA9 /* homekit-emulator */ = {
+			isa = PBXGroup;
+			children = (
+				91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */,
+				91EB2CB51EEB1103003DBAA9 /* ViewController.swift */,
+				91EB2CB71EEB1103003DBAA9 /* Assets.xcassets */,
+				91EB2CB91EEB1103003DBAA9 /* Main.storyboard */,
+				91EB2CBC1EEB1103003DBAA9 /* Info.plist */,
+			);
+			path = "homekit-emulator";
+			sourceTree = "<group>";
+		};
+		91EB2CC41EEB1103003DBAA9 /* homekit-emulatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				91EB2CC51EEB1103003DBAA9 /* homekit_emulatorTests.swift */,
+				91EB2CC71EEB1103003DBAA9 /* Info.plist */,
+			);
+			path = "homekit-emulatorTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		91EB2CAF1EEB1103003DBAA9 /* homekit-emulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91EB2CCA1EEB1103003DBAA9 /* Build configuration list for PBXNativeTarget "homekit-emulator" */;
+			buildPhases = (
+				91EB2CAC1EEB1103003DBAA9 /* Sources */,
+				91EB2CAD1EEB1103003DBAA9 /* Frameworks */,
+				91EB2CAE1EEB1103003DBAA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "homekit-emulator";
+			productName = "homekit-emulator";
+			productReference = 91EB2CB01EEB1103003DBAA9 /* homekit-emulator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		91EB2CC01EEB1103003DBAA9 /* homekit-emulatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91EB2CCD1EEB1103003DBAA9 /* Build configuration list for PBXNativeTarget "homekit-emulatorTests" */;
+			buildPhases = (
+				91EB2CBD1EEB1103003DBAA9 /* Sources */,
+				91EB2CBE1EEB1103003DBAA9 /* Frameworks */,
+				91EB2CBF1EEB1103003DBAA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91EB2CC31EEB1103003DBAA9 /* PBXTargetDependency */,
+			);
+			name = "homekit-emulatorTests";
+			productName = "homekit-emulatorTests";
+			productReference = 91EB2CC11EEB1103003DBAA9 /* homekit-emulatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91EB2CA81EEB1103003DBAA9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Mobile Flow LLC";
+				TargetAttributes = {
+					91EB2CAF1EEB1103003DBAA9 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4W8SEMVXD2;
+						ProvisioningStyle = Automatic;
+					};
+					91EB2CC01EEB1103003DBAA9 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4W8SEMVXD2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 91EB2CAF1EEB1103003DBAA9;
+					};
+				};
+			};
+			buildConfigurationList = 91EB2CAB1EEB1103003DBAA9 /* Build configuration list for PBXProject "homekit-emulator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 91EB2CA71EEB1103003DBAA9;
+			productRefGroup = 91EB2CB11EEB1103003DBAA9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				91EB2CAF1EEB1103003DBAA9 /* homekit-emulator */,
+				91EB2CC01EEB1103003DBAA9 /* homekit-emulatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		91EB2CAE1EEB1103003DBAA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91EB2CB81EEB1103003DBAA9 /* Assets.xcassets in Resources */,
+				91EB2CBB1EEB1103003DBAA9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91EB2CBF1EEB1103003DBAA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		91EB2CAC1EEB1103003DBAA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91EB2CB61EEB1103003DBAA9 /* ViewController.swift in Sources */,
+				91EB2CB41EEB1103003DBAA9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91EB2CBD1EEB1103003DBAA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91EB2CC61EEB1103003DBAA9 /* homekit_emulatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		91EB2CC31EEB1103003DBAA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91EB2CAF1EEB1103003DBAA9 /* homekit-emulator */;
+			targetProxy = 91EB2CC21EEB1103003DBAA9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		91EB2CB91EEB1103003DBAA9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91EB2CBA1EEB1103003DBAA9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		91EB2CC81EEB1103003DBAA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		91EB2CC91EEB1103003DBAA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		91EB2CCB1EEB1103003DBAA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4W8SEMVXD2;
+				INFOPLIST_FILE = "homekit-emulator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobileflowllc.homekit-emulator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		91EB2CCC1EEB1103003DBAA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4W8SEMVXD2;
+				INFOPLIST_FILE = "homekit-emulator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobileflowllc.homekit-emulator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		91EB2CCE1EEB1103003DBAA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4W8SEMVXD2;
+				INFOPLIST_FILE = "homekit-emulatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobileflowllc.homekit-emulatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/homekit-emulator.app/Contents/MacOS/homekit-emulator";
+			};
+			name = Debug;
+		};
+		91EB2CCF1EEB1103003DBAA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4W8SEMVXD2;
+				INFOPLIST_FILE = "homekit-emulatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobileflowllc.homekit-emulatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/homekit-emulator.app/Contents/MacOS/homekit-emulator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		91EB2CAB1EEB1103003DBAA9 /* Build configuration list for PBXProject "homekit-emulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91EB2CC81EEB1103003DBAA9 /* Debug */,
+				91EB2CC91EEB1103003DBAA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91EB2CCA1EEB1103003DBAA9 /* Build configuration list for PBXNativeTarget "homekit-emulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91EB2CCB1EEB1103003DBAA9 /* Debug */,
+				91EB2CCC1EEB1103003DBAA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		91EB2CCD1EEB1103003DBAA9 /* Build configuration list for PBXNativeTarget "homekit-emulatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91EB2CCE1EEB1103003DBAA9 /* Debug */,
+				91EB2CCF1EEB1103003DBAA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91EB2CA81EEB1103003DBAA9 /* Project object */;
+}
