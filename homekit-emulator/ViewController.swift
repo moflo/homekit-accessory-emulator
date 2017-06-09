@@ -17,12 +17,18 @@ class ViewController: NSViewController {
     var asyncSocket: GCDAsyncSocket!
     var connected: Bool = false
 
+    @IBOutlet var textView: NSTextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        displayString("Loading…")
 
         // Start Bonjour service discovery
         netServiceBrowser.delegate = self
         netServiceBrowser.searchForServices(ofType: "_hap._tcp.", inDomain: "local.")
+        
+        displayString("Waiting…")
 
     }
 
@@ -32,12 +38,18 @@ class ViewController: NSViewController {
         }
     }
 
+    func displayString(_ info :String, _ arguments: CVarArg...) {
+        let text = String(format: NSLocalizedString(info, comment: ""), arguments)
+        textView.textStorage?.append(NSAttributedString(string: "\(text)\n\r"))
+
+    }
+    
 }
 
 extension ViewController : NetServiceBrowserDelegate {
     
     func netServiceBrowser(_ browser: NetServiceBrowser, didNotSearch errorDict: [String : NSNumber]) {
-        print("NetServiceBrowser: didNotSearch")
+        displayString("NetServiceBrowser: didNotSearch")
     }
     
     func netServiceBrowser(_ browser: NetServiceBrowser, didFind service: NetService, moreComing: Bool) {
@@ -46,7 +58,7 @@ extension ViewController : NetServiceBrowserDelegate {
         // Start service...
         if (serverService == nil)
         {
-            print("NetServiceBrowser: Resolving...")
+            displayString("NetServiceBrowser: Resolving...")
             
             serverService = service
             
@@ -59,26 +71,26 @@ extension ViewController : NetServiceBrowserDelegate {
     }
     
     func netServiceBrowser(_ browser: NetServiceBrowser, didRemove service: NetService, moreComing: Bool) {
-        print("NetServiceBrowser: didRemove service - ", service.name)
+        displayString("NetServiceBrowser: didRemove service - ", service.name)
     }
     
     func netServiceBrowserDidStopSearch(_ browser: NetServiceBrowser) {
-        print("NetServiceBrowser: didStopSearch")
+        displayString("NetServiceBrowser: didStopSearch")
     }
 }
 
 extension ViewController : NetServiceDelegate {
     
     func netService(_ sender: NetService, didNotPublish errorDict: [String : NSNumber]) {
-        print("NetService: didNotPublish")
+        displayString("NetService: didNotPublish")
     }
     
     func netService(_ sender: NetService, didNotResolve errorDict: [String : NSNumber]) {
-        print("NetService: didNotResolve")
+        displayString("NetService: didNotResolve")
     }
     
     func netServiceDidResolveAddress(_ sender: NetService) {
-        print("NetService: didResolve - ",sender.name)
+        displayString("NetService: didResolve - ",sender.name)
         
         // May need to handle multiple addresses
         
@@ -108,7 +120,7 @@ extension ViewController : GCDAsyncSocketDelegate {
             
             if let address = serverAddresses.popLast() {
             
-                print("Attempting connection to %@", address)
+                displayString("Attempting connection to %@", address.debugDescription)
                 
                 do {
                     
@@ -119,7 +131,7 @@ extension ViewController : GCDAsyncSocketDelegate {
                 }
                 catch {
                     
-                    print("Error trying to connect! ",error)
+                    displayString("Error trying to connect! ",error.localizedDescription)
                     done = true
                 }
                 
@@ -128,27 +140,26 @@ extension ViewController : GCDAsyncSocketDelegate {
         }
         
         if (!done) {
-            
-            print("Unable to connect to any resolved address")
+            displayString("Unable to connect to any resolved address")
             
         }
 
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
-        print("GCDAsyncSocket: didConnectTo - ", url)
+        displayString("GCDAsyncSocket: didConnectTo - ", url.absoluteString)
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
-        print("GCDAsyncSocket: didConnectToHost - ", host)
+        displayString("GCDAsyncSocket: didConnectToHost - ", host)
     }
     
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        print("GCDAsyncSocket: didRead - ", data.debugDescription)
+        displayString("GCDAsyncSocket: didRead - ", data.debugDescription)
     }
     
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
-        print("GCDAsyncSocket: socketDidDisconnect - ", err.debugDescription)
+        displayString("GCDAsyncSocket: socketDidDisconnect - ", err?.localizedDescription ?? "unknown error")
     }
     
 }
