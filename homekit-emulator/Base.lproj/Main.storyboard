@@ -723,10 +723,12 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3h-MP-hP6">
-                                <rect key="frame" x="162" y="175" width="156" height="34"/>
+                                <rect key="frame" x="284" y="166" width="176" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="519-12-582" id="2vM-Vf-Xqr">
-                                    <font key="font" size="20" name="CourierNewPSMT"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" id="2vM-Vf-Xqr">
+                                    <font key="font" size="16" name="CourierNewPS-BoldMT"/>
+                                    <string key="title">
+519-12-582</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>

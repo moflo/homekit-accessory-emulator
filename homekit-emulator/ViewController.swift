@@ -14,6 +14,7 @@ class ViewController: NSViewController {
     let netServiceBrowser = NetServiceBrowser()
     var serverService: NetService!
     var serverAddresses = [Data]()
+    var connectedSockets = [Data]()
     var asyncSocket: GCDAsyncSocket!
     var connected: Bool = false
 
@@ -27,8 +28,45 @@ class ViewController: NSViewController {
         displayString("Loading…")
 
         // Start Bonjour service discovery
-        netServiceBrowser.delegate = self
-        netServiceBrowser.searchForServices(ofType: "_hap._tcp.", inDomain: "local.")
+
+        if (false) {
+            
+            netServiceBrowser.delegate = self
+            netServiceBrowser.searchForServices(ofType: "_hap._tcp", inDomain: "")
+//            netServiceBrowser.searchForServices(ofType: "_hap._tcp.", inDomain: "local.")
+
+        }
+        else {
+            asyncSocket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
+
+            do {
+                try asyncSocket.accept(onPort: 0)
+            }
+            catch {
+                displayString("Error on acceptOnPort")
+            }
+
+            
+            let port = Int32(asyncSocket.localPort)
+            
+            displayString("Starting service on port: %@", port)
+            
+            serverService = NetService(domain: "", type: "_hap._tcp.", name: "emulator", port: port)
+//            serverService = NetService(domain: "local.", type: "_hap._tcp.", name: "emulator", port: 0)
+//            serverService = NetService(domain: "local.", type: "_hap._tcp.", name: "emulator", port: port)
+//            serverService = NetService(domain: "", type: "_hap._tcp.", name: "emulator", port: port)
+            
+            serverService.publish(options: [.listenForConnections])
+//            serverService.publish()
+            
+            serverService.schedule(in: .main, forMode: .defaultRunLoopMode)
+            let txtDict :[String : Data] = ["key":"hello".data(using: .utf8)!]
+            let txtData = NetService.data(fromTXTRecord: txtDict)
+            serverService.setTXTRecord(txtData)
+
+            serverService.delegate = self
+        }
+        
         
         displayString("Waiting…")
 
@@ -83,6 +121,9 @@ extension ViewController : NetServiceBrowserDelegate {
 
 extension ViewController : NetServiceDelegate {
     
+    func netServiceDidPublish(_ sender: NetService) {
+        displayString("NetService: didPublish")
+    }
     func netService(_ sender: NetService, didNotPublish errorDict: [String : NSNumber]) {
         displayString("NetService: didNotPublish")
     }
@@ -114,6 +155,10 @@ extension ViewController : NetServiceDelegate {
 
 extension ViewController : GCDAsyncSocketDelegate {
     
+    func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
+        displayString("GCDAsyncSocket:  Accepted new socket from %@:%hu", newSocket.connectedHost!, newSocket.connectedPort);
+    }
+    
     func connectToNextAddress() {
         // Consume serverAddresses array
         
@@ -122,7 +167,7 @@ extension ViewController : GCDAsyncSocketDelegate {
             
             if let address = serverAddresses.popLast() {
             
-                displayString("Attempting connection to %@", address.debugDescription)
+                displayString("GCDAsyncSocket: Attempting connection to %@", address.debugDescription)
                 
                 do {
                     
@@ -133,7 +178,7 @@ extension ViewController : GCDAsyncSocketDelegate {
                 }
                 catch {
                     
-                    displayString("Error trying to connect via asyncSocket!")
+                    displayString("GCDAsyncSocket: Error trying to connect via asyncSocket!")
                     done = true
                 }
                 
@@ -142,7 +187,7 @@ extension ViewController : GCDAsyncSocketDelegate {
         }
         
         if (!done) {
-            displayString("Unable to connect to any resolved address")
+            displayString("GCDAsyncSocket: Unable to connect to any resolved address")
             
         }
 
@@ -163,5 +208,6 @@ extension ViewController : GCDAsyncSocketDelegate {
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         displayString("GCDAsyncSocket: socketDidDisconnect - %@", err?.localizedDescription ?? "unknown error")
     }
+    
     
 }
