@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04A6B5596F7355F172AD63B4 /* Pods_homekit_emulatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBD46CEC2B53EBA864717E4 /* Pods_homekit_emulatorTests.framework */; };
 		2796335B4484B55FB12EACA5 /* Pods_homekit_emulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07BB3B28EF4024FF34D31E7 /* Pods_homekit_emulator.framework */; };
+		916A22EA1EEB276300FE8281 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 916A22E91EEB276300FE8281 /* README.md */; };
 		91DC3E951EEB18F2005FCEFF /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 91DC3E941EEB18F2005FCEFF /* Podfile */; };
 		91EB2CB41EEB1103003DBAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */; };
 		91EB2CB61EEB1103003DBAA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB2CB51EEB1103003DBAA9 /* ViewController.swift */; };
@@ -31,7 +32,8 @@
 		10A401E768A1B0F4A8408D8B /* Pods-homekit-emulatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homekit-emulatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-homekit-emulatorTests/Pods-homekit-emulatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		4EBD46CEC2B53EBA864717E4 /* Pods_homekit_emulatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homekit_emulatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		650BF585AD5CFD7210D7657A /* Pods-homekit-emulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homekit-emulator.release.xcconfig"; path = "Pods/Target Support Files/Pods-homekit-emulator/Pods-homekit-emulator.release.xcconfig"; sourceTree = "<group>"; };
-		91DC3E941EEB18F2005FCEFF /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		916A22E91EEB276300FE8281 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		91DC3E941EEB18F2005FCEFF /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		91EB2CB01EEB1103003DBAA9 /* homekit-emulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "homekit-emulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91EB2CB51EEB1103003DBAA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		91EB2CA71EEB1103003DBAA9 = {
 			isa = PBXGroup;
 			children = (
+				916A22E91EEB276300FE8281 /* README.md */,
 				91DC3E941EEB18F2005FCEFF /* Podfile */,
 				91EB2CB21EEB1103003DBAA9 /* homekit-emulator */,
 				91EB2CC41EEB1103003DBAA9 /* homekit-emulatorTests */,
@@ -332,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916A22EA1EEB276300FE8281 /* README.md in Sources */,
 				91EB2CB61EEB1103003DBAA9 /* ViewController.swift in Sources */,
 				91EB2CB41EEB1103003DBAA9 /* AppDelegate.swift in Sources */,
 			);
