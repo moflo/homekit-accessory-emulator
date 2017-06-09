@@ -722,9 +722,19 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3h-MP-hP6">
+                                <rect key="frame" x="162" y="175" width="156" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="519-12-582" id="2vM-Vf-Xqr">
+                                    <font key="font" size="20" name="CourierNewPSMT"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="codeView" destination="t3h-MP-hP6" id="LkA-Nm-Vcn"/>
                         <outlet property="textView" destination="3EE-ZN-tgl" id="4dd-XX-Xn4"/>
                     </connections>
                 </viewController>

@@ -17,6 +17,8 @@ class ViewController: NSViewController {
     var asyncSocket: GCDAsyncSocket!
     var connected: Bool = false
 
+    @IBOutlet weak var codeView: NSTextField!
+    
     @IBOutlet var textView: NSTextView!
     
     override func viewDidLoad() {
@@ -40,7 +42,7 @@ class ViewController: NSViewController {
 
     func displayString(_ info :String, _ arguments: CVarArg...) {
         let text = String(format: NSLocalizedString(info, comment: ""), arguments)
-        textView.textStorage?.append(NSAttributedString(string: "\(text)\n\r"))
+        textView.textStorage?.append(NSAttributedString(string: "\(text)\n"))
 
     }
     
@@ -53,7 +55,7 @@ extension ViewController : NetServiceBrowserDelegate {
     }
     
     func netServiceBrowser(_ browser: NetServiceBrowser, didFind service: NetService, moreComing: Bool) {
-        print("NetServiceBrowser: didFind service - ", service.name)
+        displayString("NetServiceBrowser: didFind service - %@", service.name)
         
         // Start service...
         if (serverService == nil)
@@ -71,7 +73,7 @@ extension ViewController : NetServiceBrowserDelegate {
     }
     
     func netServiceBrowser(_ browser: NetServiceBrowser, didRemove service: NetService, moreComing: Bool) {
-        displayString("NetServiceBrowser: didRemove service - ", service.name)
+        displayString("NetServiceBrowser: didRemove service - %@", service.name)
     }
     
     func netServiceBrowserDidStopSearch(_ browser: NetServiceBrowser) {
@@ -90,7 +92,7 @@ extension ViewController : NetServiceDelegate {
     }
     
     func netServiceDidResolveAddress(_ sender: NetService) {
-        displayString("NetService: didResolve - ",sender.name)
+        displayString("NetService: didResolve - %@",sender.name)
         
         // May need to handle multiple addresses
         
@@ -131,7 +133,7 @@ extension ViewController : GCDAsyncSocketDelegate {
                 }
                 catch {
                     
-                    displayString("Error trying to connect! ",error.localizedDescription)
+                    displayString("Error trying to connect via asyncSocket!")
                     done = true
                 }
                 
@@ -147,19 +149,19 @@ extension ViewController : GCDAsyncSocketDelegate {
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
-        displayString("GCDAsyncSocket: didConnectTo - ", url.absoluteString)
+        displayString("GCDAsyncSocket: didConnectTo - %@", url.absoluteString)
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
-        displayString("GCDAsyncSocket: didConnectToHost - ", host)
+        displayString("GCDAsyncSocket: didConnectToHost - %@", host)
     }
     
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        displayString("GCDAsyncSocket: didRead - ", data.debugDescription)
+        displayString("GCDAsyncSocket: didRead - %@", data.debugDescription)
     }
     
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
-        displayString("GCDAsyncSocket: socketDidDisconnect - ", err?.localizedDescription ?? "unknown error")
+        displayString("GCDAsyncSocket: socketDidDisconnect - %@", err?.localizedDescription ?? "unknown error")
     }
     
 }
