@@ -220,6 +220,9 @@ extension ViewController : GCDAsyncSocketDelegate {
     
     func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
         displayString("GCDAsyncSocket:  Accepted new socket from %@:%hu", newSocket.connectedHost!, newSocket.connectedPort);
+        
+        // Start new accessory pairing
+        newSocket.readData(withTimeout: -1, tag: 0)
     }
     
     func connectToNextAddress() {
