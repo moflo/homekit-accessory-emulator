@@ -1,0 +1,15 @@
+PODS:
+  - CocoaAsyncSocket (7.6.1)
+  - Nimble (7.0.1)
+
+DEPENDENCIES:
+  - CocoaAsyncSocket
+  - Nimble
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
+
+PODFILE CHECKSUM: 5d68fbbba06cd909d94173ff37b09e78b69fa3ac
+
+COCOAPODS: 1.2.1
