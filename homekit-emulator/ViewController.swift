@@ -261,14 +261,21 @@ extension ViewController : GCDAsyncSocketDelegate {
     
     func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
         displayString("GCDAsyncSocket: didConnectTo - %@", url.absoluteString)
+
+        asyncSocket.readData(withTimeout: -1, tag: 99)
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         displayString("GCDAsyncSocket: didConnectToHost - %@", host)
+        
+        asyncSocket.readData(withTimeout: -1, tag: 99)
     }
     
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         displayString("GCDAsyncSocket: didRead - %@", data.debugDescription)
+        
+        print(data)
+        
     }
     
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
