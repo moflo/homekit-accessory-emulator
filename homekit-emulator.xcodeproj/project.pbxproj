@@ -10,6 +10,10 @@
 		04A6B5596F7355F172AD63B4 /* Pods_homekit_emulatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBD46CEC2B53EBA864717E4 /* Pods_homekit_emulatorTests.framework */; };
 		2796335B4484B55FB12EACA5 /* Pods_homekit_emulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07BB3B28EF4024FF34D31E7 /* Pods_homekit_emulator.framework */; };
 		916A22EA1EEB276300FE8281 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 916A22E91EEB276300FE8281 /* README.md */; };
+		919122791F09556E004A7C15 /* TLV8_Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919122781F09556E004A7C15 /* TLV8_Bridge.mm */; };
+		9191227A1F0956B0004A7C15 /* TLV8_Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919122781F09556E004A7C15 /* TLV8_Bridge.mm */; };
+		91D5B0AC1F09482C0067C5C5 /* TLV8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91D5B0AA1F09482C0067C5C5 /* TLV8.cpp */; };
+		91D5B0AE1F0949D10067C5C5 /* TLV8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91D5B0AA1F09482C0067C5C5 /* TLV8.cpp */; };
 		91DC3E951EEB18F2005FCEFF /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 91DC3E941EEB18F2005FCEFF /* Podfile */; };
 		91EB2CB41EEB1103003DBAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */; };
 		91EB2CB61EEB1103003DBAA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB2CB51EEB1103003DBAA9 /* ViewController.swift */; };
@@ -33,6 +37,11 @@
 		4EBD46CEC2B53EBA864717E4 /* Pods_homekit_emulatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homekit_emulatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		650BF585AD5CFD7210D7657A /* Pods-homekit-emulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homekit-emulator.release.xcconfig"; path = "Pods/Target Support Files/Pods-homekit-emulator/Pods-homekit-emulator.release.xcconfig"; sourceTree = "<group>"; };
 		916A22E91EEB276300FE8281 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		919122781F09556E004A7C15 /* TLV8_Bridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TLV8_Bridge.mm; sourceTree = "<group>"; };
+		9191227B1F0956E6004A7C15 /* TLV8_Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLV8_Bridge.h; sourceTree = "<group>"; };
+		9191227C1F0957F1004A7C15 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		91D5B0AA1F09482C0067C5C5 /* TLV8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TLV8.cpp; sourceTree = "<group>"; };
+		91D5B0AB1F09482C0067C5C5 /* TLV8.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TLV8.hpp; sourceTree = "<group>"; };
 		91DC3E941EEB18F2005FCEFF /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		91EB2CB01EEB1103003DBAA9 /* homekit-emulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "homekit-emulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +77,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91D5B0A91F09482C0067C5C5 /* TLV8 */ = {
+			isa = PBXGroup;
+			children = (
+				91D5B0AA1F09482C0067C5C5 /* TLV8.cpp */,
+				91D5B0AB1F09482C0067C5C5 /* TLV8.hpp */,
+				919122781F09556E004A7C15 /* TLV8_Bridge.mm */,
+				9191227B1F0956E6004A7C15 /* TLV8_Bridge.h */,
+			);
+			path = TLV8;
+			sourceTree = "<group>";
+		};
 		91EB2CA71EEB1103003DBAA9 = {
 			isa = PBXGroup;
 			children = (
@@ -95,9 +115,11 @@
 			children = (
 				91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */,
 				91EB2CB51EEB1103003DBAA9 /* ViewController.swift */,
+				91D5B0A91F09482C0067C5C5 /* TLV8 */,
 				91EB2CB71EEB1103003DBAA9 /* Assets.xcassets */,
 				91EB2CB91EEB1103003DBAA9 /* Main.storyboard */,
 				91EB2CBC1EEB1103003DBAA9 /* Info.plist */,
+				9191227C1F0957F1004A7C15 /* Bridging-Header.h */,
 			);
 			path = "homekit-emulator";
 			sourceTree = "<group>";
@@ -336,8 +358,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				916A22EA1EEB276300FE8281 /* README.md in Sources */,
+				919122791F09556E004A7C15 /* TLV8_Bridge.mm in Sources */,
 				91EB2CB61EEB1103003DBAA9 /* ViewController.swift in Sources */,
 				91EB2CB41EEB1103003DBAA9 /* AppDelegate.swift in Sources */,
+				91D5B0AC1F09482C0067C5C5 /* TLV8.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +370,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				91EB2CC61EEB1103003DBAA9 /* homekit_emulatorTests.swift in Sources */,
+				9191227A1F0956B0004A7C15 /* TLV8_Bridge.mm in Sources */,
+				91D5B0AE1F0949D10067C5C5 /* TLV8.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +531,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobileflowllc.homekit-emulatorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./homekit-emulator/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/homekit-emulator.app/Contents/MacOS/homekit-emulator";
 			};
@@ -522,6 +549,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobileflowllc.homekit-emulatorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./homekit-emulator/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/homekit-emulator.app/Contents/MacOS/homekit-emulator";
 			};
