@@ -49,5 +49,41 @@
     
 }
 
+-(NSData *) encodeDict:(NSDictionary *)dict
+{
+    NSEnumerator *enumerator = [dict keyEnumerator];
+    id key;
+
+    tlv_map_t map = tlv_map();
+    
+    while((key = [enumerator nextObject])) {
+        NSLog(@"key=%@ value=%@", key, [dict objectForKey:key]);
+        
+        uint8_t type = [key intValue];
+        NSData *data = (NSData *)[dict objectForKey:key];
+        uint8_t *bytes = (uint8_t *)[data bytes];
+        uint16_t count = [data length];
+        
+        tlv_t new_tlv = tlv(type, bytes, count);
+
+        map.insert(new_tlv);
+        
+    }
+
+    TLV8Class tlv = TLV8Class();
+
+    uint8_t *encodedData = NULL;
+    uint16_t encodedDataLen = 0;
+    
+    tlv_result_t r = tlv.encode(&map, &encodedData, &encodedDataLen);
+    
+    NSLog(@"encode output: %d",r);
+
+    
+    NSData *data = [[NSData alloc] initWithBytes:encodedData length:encodedDataLen];
+
+    return data;
+    
+}
 
 @end

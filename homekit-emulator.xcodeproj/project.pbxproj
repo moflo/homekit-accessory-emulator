@@ -12,6 +12,34 @@
 		916A22EA1EEB276300FE8281 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 916A22E91EEB276300FE8281 /* README.md */; };
 		919122791F09556E004A7C15 /* TLV8_Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919122781F09556E004A7C15 /* TLV8_Bridge.mm */; };
 		9191227A1F0956B0004A7C15 /* TLV8_Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919122781F09556E004A7C15 /* TLV8_Bridge.mm */; };
+		919A87341F09798D0093CCBD /* chacha20_poly1305.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87101F09798D0093CCBD /* chacha20_poly1305.cpp */; };
+		919A87351F09798D0093CCBD /* ed25519.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87121F09798D0093CCBD /* ed25519.cpp */; };
+		919A87361F09798D0093CCBD /* HAPController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87151F09798D0093CCBD /* HAPController.cpp */; };
+		919A87371F09798D0093CCBD /* HAPController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919A87171F09798D0093CCBD /* HAPController.mm */; };
+		919A87381F09798D0093CCBD /* integer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87191F09798D0093CCBD /* integer.cpp */; };
+		919A87391F09798D0093CCBD /* logging.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A871B1F09798D0093CCBD /* logging.cpp */; };
+		919A873A1F09798D0093CCBD /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A871D1F09798D0093CCBD /* memory.cpp */; };
+		919A873B1F09798D0093CCBD /* misc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A871F1F09798D0093CCBD /* misc.cpp */; };
+		919A873C1F09798D0093CCBD /* random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87231F09798D0093CCBD /* random.cpp */; };
+		919A873D1F09798D0093CCBD /* sha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87261F09798D0093CCBD /* sha.cpp */; };
+		919A873E1F09798D0093CCBD /* sha256.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87281F09798D0093CCBD /* sha256.cpp */; };
+		919A873F1F09798D0093CCBD /* sha512.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A872A1F09798D0093CCBD /* sha512.cpp */; };
+		919A87401F09798D0093CCBD /* srp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A872C1F09798D0093CCBD /* srp.cpp */; };
+		919A87411F09798D0093CCBD /* wc_port.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87311F09798D0093CCBD /* wc_port.cpp */; };
+		919A87421F097B4C0093CCBD /* HAPController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87151F09798D0093CCBD /* HAPController.cpp */; };
+		919A87431F097B4C0093CCBD /* HAPController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919A87171F09798D0093CCBD /* HAPController.mm */; };
+		919A87441F097B4C0093CCBD /* chacha20_poly1305.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87101F09798D0093CCBD /* chacha20_poly1305.cpp */; };
+		919A87451F097B4C0093CCBD /* ed25519.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87121F09798D0093CCBD /* ed25519.cpp */; };
+		919A87461F097B4C0093CCBD /* integer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87191F09798D0093CCBD /* integer.cpp */; };
+		919A87471F097B4C0093CCBD /* logging.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A871B1F09798D0093CCBD /* logging.cpp */; };
+		919A87481F097B4C0093CCBD /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A871D1F09798D0093CCBD /* memory.cpp */; };
+		919A87491F097B4C0093CCBD /* misc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A871F1F09798D0093CCBD /* misc.cpp */; };
+		919A874A1F097B4C0093CCBD /* random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87231F09798D0093CCBD /* random.cpp */; };
+		919A874B1F097B4C0093CCBD /* sha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87261F09798D0093CCBD /* sha.cpp */; };
+		919A874C1F097B4C0093CCBD /* sha256.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87281F09798D0093CCBD /* sha256.cpp */; };
+		919A874D1F097B4C0093CCBD /* sha512.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A872A1F09798D0093CCBD /* sha512.cpp */; };
+		919A874E1F097B4C0093CCBD /* srp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A872C1F09798D0093CCBD /* srp.cpp */; };
+		919A874F1F097B4C0093CCBD /* wc_port.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87311F09798D0093CCBD /* wc_port.cpp */; };
 		91D5B0AC1F09482C0067C5C5 /* TLV8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91D5B0AA1F09482C0067C5C5 /* TLV8.cpp */; };
 		91D5B0AE1F0949D10067C5C5 /* TLV8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91D5B0AA1F09482C0067C5C5 /* TLV8.cpp */; };
 		91DC3E951EEB18F2005FCEFF /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 91DC3E941EEB18F2005FCEFF /* Podfile */; };
@@ -40,6 +68,42 @@
 		919122781F09556E004A7C15 /* TLV8_Bridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TLV8_Bridge.mm; sourceTree = "<group>"; };
 		9191227B1F0956E6004A7C15 /* TLV8_Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLV8_Bridge.h; sourceTree = "<group>"; };
 		9191227C1F0957F1004A7C15 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		919A87101F09798D0093CCBD /* chacha20_poly1305.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chacha20_poly1305.cpp; sourceTree = "<group>"; };
+		919A87111F09798D0093CCBD /* chacha20_poly1305.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chacha20_poly1305.h; sourceTree = "<group>"; };
+		919A87121F09798D0093CCBD /* ed25519.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ed25519.cpp; sourceTree = "<group>"; };
+		919A87131F09798D0093CCBD /* ed25519.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ed25519.h; sourceTree = "<group>"; };
+		919A87141F09798D0093CCBD /* error-crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "error-crypt.h"; sourceTree = "<group>"; };
+		919A87151F09798D0093CCBD /* HAPController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HAPController.cpp; sourceTree = "<group>"; };
+		919A87161F09798D0093CCBD /* HAPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPController.h; sourceTree = "<group>"; };
+		919A87171F09798D0093CCBD /* HAPController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HAPController.mm; sourceTree = "<group>"; };
+		919A87181F09798D0093CCBD /* HAPController_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAPController_Bridge.h; sourceTree = "<group>"; };
+		919A87191F09798D0093CCBD /* integer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = integer.cpp; sourceTree = "<group>"; };
+		919A871A1F09798D0093CCBD /* integer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integer.h; sourceTree = "<group>"; };
+		919A871B1F09798D0093CCBD /* logging.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = logging.cpp; sourceTree = "<group>"; };
+		919A871C1F09798D0093CCBD /* logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logging.h; sourceTree = "<group>"; };
+		919A871D1F09798D0093CCBD /* memory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = memory.cpp; sourceTree = "<group>"; };
+		919A871E1F09798D0093CCBD /* memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memory.h; sourceTree = "<group>"; };
+		919A871F1F09798D0093CCBD /* misc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = misc.cpp; sourceTree = "<group>"; };
+		919A87201F09798D0093CCBD /* misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc.h; sourceTree = "<group>"; };
+		919A87211F09798D0093CCBD /* mpi_class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpi_class.h; sourceTree = "<group>"; };
+		919A87221F09798D0093CCBD /* mpi_superclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpi_superclass.h; sourceTree = "<group>"; };
+		919A87231F09798D0093CCBD /* random.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = random.cpp; sourceTree = "<group>"; };
+		919A87241F09798D0093CCBD /* random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = random.h; sourceTree = "<group>"; };
+		919A87251F09798D0093CCBD /* settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
+		919A87261F09798D0093CCBD /* sha.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sha.cpp; sourceTree = "<group>"; };
+		919A87271F09798D0093CCBD /* sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
+		919A87281F09798D0093CCBD /* sha256.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sha256.cpp; sourceTree = "<group>"; };
+		919A87291F09798D0093CCBD /* sha256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha256.h; sourceTree = "<group>"; };
+		919A872A1F09798D0093CCBD /* sha512.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sha512.cpp; sourceTree = "<group>"; };
+		919A872B1F09798D0093CCBD /* sha512.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha512.h; sourceTree = "<group>"; };
+		919A872C1F09798D0093CCBD /* srp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = srp.cpp; sourceTree = "<group>"; };
+		919A872D1F09798D0093CCBD /* srp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srp.h; sourceTree = "<group>"; };
+		919A872E1F09798D0093CCBD /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		919A872F1F09798D0093CCBD /* user_settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user_settings.h; sourceTree = "<group>"; };
+		919A87301F09798D0093CCBD /* visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = visibility.h; sourceTree = "<group>"; };
+		919A87311F09798D0093CCBD /* wc_port.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wc_port.cpp; sourceTree = "<group>"; };
+		919A87321F09798D0093CCBD /* wc_port.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wc_port.h; sourceTree = "<group>"; };
+		919A87331F09798D0093CCBD /* wolfmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wolfmath.h; sourceTree = "<group>"; };
 		91D5B0AA1F09482C0067C5C5 /* TLV8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TLV8.cpp; sourceTree = "<group>"; };
 		91D5B0AB1F09482C0067C5C5 /* TLV8.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TLV8.hpp; sourceTree = "<group>"; };
 		91DC3E941EEB18F2005FCEFF /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -77,6 +141,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		919A870F1F09798D0093CCBD /* HAPController */ = {
+			isa = PBXGroup;
+			children = (
+				919A87151F09798D0093CCBD /* HAPController.cpp */,
+				919A87161F09798D0093CCBD /* HAPController.h */,
+				919A87171F09798D0093CCBD /* HAPController.mm */,
+				919A87181F09798D0093CCBD /* HAPController_Bridge.h */,
+				919A87101F09798D0093CCBD /* chacha20_poly1305.cpp */,
+				919A87111F09798D0093CCBD /* chacha20_poly1305.h */,
+				919A87121F09798D0093CCBD /* ed25519.cpp */,
+				919A87131F09798D0093CCBD /* ed25519.h */,
+				919A87141F09798D0093CCBD /* error-crypt.h */,
+				919A87191F09798D0093CCBD /* integer.cpp */,
+				919A871A1F09798D0093CCBD /* integer.h */,
+				919A871B1F09798D0093CCBD /* logging.cpp */,
+				919A871C1F09798D0093CCBD /* logging.h */,
+				919A871D1F09798D0093CCBD /* memory.cpp */,
+				919A871E1F09798D0093CCBD /* memory.h */,
+				919A871F1F09798D0093CCBD /* misc.cpp */,
+				919A87201F09798D0093CCBD /* misc.h */,
+				919A87211F09798D0093CCBD /* mpi_class.h */,
+				919A87221F09798D0093CCBD /* mpi_superclass.h */,
+				919A87231F09798D0093CCBD /* random.cpp */,
+				919A87241F09798D0093CCBD /* random.h */,
+				919A87251F09798D0093CCBD /* settings.h */,
+				919A87261F09798D0093CCBD /* sha.cpp */,
+				919A87271F09798D0093CCBD /* sha.h */,
+				919A87281F09798D0093CCBD /* sha256.cpp */,
+				919A87291F09798D0093CCBD /* sha256.h */,
+				919A872A1F09798D0093CCBD /* sha512.cpp */,
+				919A872B1F09798D0093CCBD /* sha512.h */,
+				919A872C1F09798D0093CCBD /* srp.cpp */,
+				919A872D1F09798D0093CCBD /* srp.h */,
+				919A872E1F09798D0093CCBD /* types.h */,
+				919A872F1F09798D0093CCBD /* user_settings.h */,
+				919A87301F09798D0093CCBD /* visibility.h */,
+				919A87311F09798D0093CCBD /* wc_port.cpp */,
+				919A87321F09798D0093CCBD /* wc_port.h */,
+				919A87331F09798D0093CCBD /* wolfmath.h */,
+			);
+			path = HAPController;
+			sourceTree = "<group>";
+		};
 		91D5B0A91F09482C0067C5C5 /* TLV8 */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +222,7 @@
 			children = (
 				91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */,
 				91EB2CB51EEB1103003DBAA9 /* ViewController.swift */,
+				919A870F1F09798D0093CCBD /* HAPController */,
 				91D5B0A91F09482C0067C5C5 /* TLV8 */,
 				91EB2CB71EEB1103003DBAA9 /* Assets.xcassets */,
 				91EB2CB91EEB1103003DBAA9 /* Main.storyboard */,
@@ -357,11 +465,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919A873D1F09798D0093CCBD /* sha.cpp in Sources */,
 				916A22EA1EEB276300FE8281 /* README.md in Sources */,
 				919122791F09556E004A7C15 /* TLV8_Bridge.mm in Sources */,
+				919A87401F09798D0093CCBD /* srp.cpp in Sources */,
+				919A873C1F09798D0093CCBD /* random.cpp in Sources */,
+				919A873E1F09798D0093CCBD /* sha256.cpp in Sources */,
+				919A87341F09798D0093CCBD /* chacha20_poly1305.cpp in Sources */,
 				91EB2CB61EEB1103003DBAA9 /* ViewController.swift in Sources */,
+				919A873F1F09798D0093CCBD /* sha512.cpp in Sources */,
+				919A87351F09798D0093CCBD /* ed25519.cpp in Sources */,
 				91EB2CB41EEB1103003DBAA9 /* AppDelegate.swift in Sources */,
+				919A87381F09798D0093CCBD /* integer.cpp in Sources */,
 				91D5B0AC1F09482C0067C5C5 /* TLV8.cpp in Sources */,
+				919A873A1F09798D0093CCBD /* memory.cpp in Sources */,
+				919A873B1F09798D0093CCBD /* misc.cpp in Sources */,
+				919A87371F09798D0093CCBD /* HAPController.mm in Sources */,
+				919A87391F09798D0093CCBD /* logging.cpp in Sources */,
+				919A87411F09798D0093CCBD /* wc_port.cpp in Sources */,
+				919A87361F09798D0093CCBD /* HAPController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,9 +491,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919A87481F097B4C0093CCBD /* memory.cpp in Sources */,
+				919A874D1F097B4C0093CCBD /* sha512.cpp in Sources */,
 				91EB2CC61EEB1103003DBAA9 /* homekit_emulatorTests.swift in Sources */,
 				9191227A1F0956B0004A7C15 /* TLV8_Bridge.mm in Sources */,
+				919A874F1F097B4C0093CCBD /* wc_port.cpp in Sources */,
+				919A87491F097B4C0093CCBD /* misc.cpp in Sources */,
+				919A874C1F097B4C0093CCBD /* sha256.cpp in Sources */,
+				919A87461F097B4C0093CCBD /* integer.cpp in Sources */,
+				919A87441F097B4C0093CCBD /* chacha20_poly1305.cpp in Sources */,
 				91D5B0AE1F0949D10067C5C5 /* TLV8.cpp in Sources */,
+				919A87451F097B4C0093CCBD /* ed25519.cpp in Sources */,
+				919A874A1F097B4C0093CCBD /* random.cpp in Sources */,
+				919A87431F097B4C0093CCBD /* HAPController.mm in Sources */,
+				919A874B1F097B4C0093CCBD /* sha.cpp in Sources */,
+				919A874E1F097B4C0093CCBD /* srp.cpp in Sources */,
+				919A87471F097B4C0093CCBD /* logging.cpp in Sources */,
+				919A87421F097B4C0093CCBD /* HAPController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

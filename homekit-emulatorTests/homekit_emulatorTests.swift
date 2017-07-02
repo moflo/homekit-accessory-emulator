@@ -87,9 +87,18 @@ class homekit_emulatorTests: XCTestCase {
             
         }
 
+    }
 
+    func testHAPContoller() {
+        
+        let cppObject = newHAPController()
+        
+        let dict = cppObject.getChallenge()
         
     }
+    
+    
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

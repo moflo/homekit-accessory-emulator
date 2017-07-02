@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef TLV8_Bridge_h
-#define TLV8_Bridge_h
+#ifndef HAPController_Bridge_h
+#define HAPController_Bridge_h
 
-@interface newTLV8 : NSObject
+@interface newHAPController : NSObject
 -(int) newObject;
--(NSDictionary*) parseData:(NSData*)stream;
--(NSData *) encodeDict:(NSDictionary *)dict;
+-(NSDictionary*) getChallenge;
 @end
 
 #endif /* TLV8_Bridge_h */
