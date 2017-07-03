@@ -4,6 +4,22 @@ HomeKit Accessory Emulation for Particle / Arduino Development Boards
 Using recently released HomeKit Non-commercial HAP Specification to create an embedded accessory client. Goal of this project is to test C/C++ based SHA-512 based SRP enabled HAP protocols for eventual porting to Particle.io or Arduino libraries.
 
 
+Motivation
+----------
+
+This project allows for the testing of embedded C/C++ code for use in Particle / Arduino boards by briding the C/C++ code with high-level Swift and Objective-C based native HomeKit APIs. This Mac OS based application acts as a HomeKit accessory, broadcasting it's presence over Bonjour to be discovered by the iOS Home app. Once discovered, the user starts the pairing process to use the Home app to establish a connection with thie emulator. This process allows for the testing of several C/C++ libraries which can then be used in the embedded device. Specifically, this emulator allows for the testing of the following libraries:
+
+    - SRP protocol with N = 3072, g = 5 radix
+    - ChaCha20_Polo1305 cypher
+    - ed25519 codec
+    - sha512 encoding
+    - HTTP1.1 compliant router
+    - TLV8 codec
+
+Please note, the TCP and UDP code uses native Mac OS libraries as it is expected that embedded code will use native communication libraries for Particle / Arduino.
+
+Finally, this current implementation uses the crypto library from WolfSSL / WolfCrypto for ARM compatibility. You can find our more about this library online, [https://github.com/wolfSSL/wolfssl](here).
+
 
 Testing
 -------

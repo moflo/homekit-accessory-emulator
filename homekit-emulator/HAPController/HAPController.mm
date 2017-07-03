@@ -35,24 +35,26 @@
     
     tlv_map_t map = tlv_map();
     
+    map.insert(tlv(0x01,key,key_len));
+    
     TLV8Class tlv = TLV8Class();
     
-    tlv_result_t r = tlv.decode(key, key_len, &map);
+    uint8_t *encodedData = NULL;
+    uint16_t encodedDataLen = 0;
+    
+    tlv_result_t r = tlv.encode(&map, &encodedData, &encodedDataLen);
     
     NSLog(@"decode output: %d",r);
     
-    NSInteger size = map.count;
 
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:2];
     
-    for (int i = 0; i < size; i++) {
-        tlv_t tlv_object = map.object[i];
-        NSNumber *key = [NSNumber numberWithInt:tlv_object.type];
-        uint8_t *bytes = tlv_object.data;
-        uint16_t len = tlv_object.size;
-        NSData *data = [[NSData alloc] initWithBytes:bytes length:len];
-        [dict setObject:data forKey:key];
-    }
+    NSData *data = [[NSData alloc] initWithBytes:encodedData length:encodedDataLen];
+    [dict setObject:data forKey:@"encodedData"];
+
+    NSData *challenge = [[NSData alloc] initWithBytes:key length:key_len];
+    [dict setObject:challenge forKey:@"challenge"];
+
     
     return (NSDictionary *)dict;
     

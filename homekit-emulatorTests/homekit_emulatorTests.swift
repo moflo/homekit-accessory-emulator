@@ -89,12 +89,32 @@ class homekit_emulatorTests: XCTestCase {
 
     }
 
+    func testTLV8Encode() {
+        
+        let cppObject = newTLV8()
+        
+
+        let dict = [ 1: "test".data(using: .utf8)! ]
+        let data :Data = cppObject.encodeDict(dict)
+        
+        print( data.debugDescription )
+        
+        let hexBytes = data.map { String(format: "%02hhx", $0) }
+        print( hexBytes.joined() )
+
+        expect(data.count).to(equal(6))
+        expect(Int(hexBytes[0])).to(equal(1))
+        expect(Int(hexBytes[1])).to(equal(4))
+        
+    }
+    
     func testHAPContoller() {
         
         let cppObject = newHAPController()
         
         let dict = cppObject.getChallenge()
         
+        print( dict.debugDescription )
     }
     
     
