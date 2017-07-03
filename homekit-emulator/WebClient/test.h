@@ -11,10 +11,12 @@
 
 #include <string>
 
+typedef void (*write_callback_t)(char * buffer,int len);
+
 struct TCPClient {
-    int write(const char * buffer) { return 1; };
-    int write(const char buffer) { return 1; };
-    int write(const int buffer) { return 1; };
+    int write(char * buffer, int len) { callback(buffer, len); return 0; };
+    int write(const char *buffer) { callback((char *)buffer, (int)strlen(buffer)); return 0; };
+    int write(const char buffer) { callback((char *)&buffer, 1); return 0;};
     int available( void ) { return (index < 125); };
     char read( void ) { return stream[index++]; };
     char read(const char * buffer) { return 'a'; };
@@ -23,6 +25,8 @@ struct TCPClient {
     
     char * stream;
     int index = 0;
+    
+    write_callback_t callback = NULL;
     
 };
 

@@ -12,16 +12,34 @@
 #import "homekit.h"
 
 @implementation newHomeKit
+
+
 -(int) newObject
 {
+    
     return 0;
 }
+
+NSData *outputBuffer;
+
+void callback(char *buffer, int len)
+{
+    NSString *output = [[NSString alloc] initWithBytes:buffer length:len encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"Write %@", output);
+    
+//    outputBuffer = [NSData dataWithBytes:buffer length:len];
+
+};
+
 -(int) testProcessHTTP:(NSString *)streeam
 {
     TCPClient tcpStream;
     NSData *bytes = [streeam dataUsingEncoding:NSASCIIStringEncoding];
     uint8_t *data = (uint8_t *)[bytes bytes];
     tcpStream.stream = (char *)data;
+    tcpStream.callback = callback;
+    
 
     Homekit HK = Homekit();
     
