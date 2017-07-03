@@ -18,7 +18,7 @@ This project allows for the testing of embedded C/C++ code for use in Particle /
 
 Please note, the TCP and UDP code uses native Mac OS libraries as it is expected that embedded code will use native communication libraries for Particle / Arduino.
 
-Finally, this current implementation uses the crypto library from WolfSSL / WolfCrypto for ARM compatibility. You can find our more about this library online, [https://github.com/wolfSSL/wolfssl](here).
+Finally, this current implementation uses the crypto library from WolfSSL / WolfCrypto for ARM compatibility. You can find our more about this library online, [https://github.com/wolfSSL/wolfssl](https://github.com/wolfSSL/wolfssl).
 
 
 Testing
