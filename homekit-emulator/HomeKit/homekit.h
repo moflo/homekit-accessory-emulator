@@ -14,6 +14,7 @@
 #   include "test.h"
 #endif
 
+#include "HAPController.h"
 #include "TLV8.hpp"
 #include "WebClient.h"
 
@@ -211,6 +212,8 @@ public:
     void begin();
     void process( TCPClient client );
 
+    HAPControllerClass HAPController;
+    WebClient httpClient;
     
 private:
     HomekitAccessory accessory;
@@ -218,10 +221,10 @@ private:
     
     HomeKitPairingState pairingState;
     
-    void router(int method, const char *route);
+    void router(int method, const char *route, TCPClient client, int contentLen);
     void doit();
     
-    void respondControllerPairSetup();
+    void respondControllerPairSetup(TCPClient client, int contentLen);
     void respondControllerCharacteristicsPUT();
     void respondControllerCharacteristicsGET();
     

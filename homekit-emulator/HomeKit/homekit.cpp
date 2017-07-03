@@ -16,6 +16,10 @@ Homekit::Homekit( )
     
     memcpy(this->name, hap_name, strlen(hap_name));
 
+    this->HAPController = HAPControllerClass();
+
+    this->httpClient = WebClient();
+
 }
 
 Homekit::Homekit( HomekitAccessoryType type )
@@ -29,7 +33,11 @@ Homekit::Homekit( HomekitAccessoryType type )
     this->name = (char *)malloc( strlen(hap_name));
     
     memcpy(this->name, hap_name, strlen(hap_name));
-  
+    
+    this->HAPController = HAPControllerClass();
+
+    this->httpClient = WebClient();
+
 }
 
 Homekit::Homekit( HomekitAccessoryType type, const char *hap_name )
@@ -39,6 +47,10 @@ Homekit::Homekit( HomekitAccessoryType type, const char *hap_name )
     this->name = (char *)malloc( strlen(hap_name));
     
     memcpy(this->name, hap_name, strlen(hap_name));
+    
+    this->HAPController = HAPControllerClass();
+
+    this->httpClient = WebClient();
 
 }
 
@@ -99,8 +111,23 @@ void Homekit::begin()
 // Process loop method
 void Homekit::process( TCPClient client )
 {
-    // do something useful
-//    Serial.println("called process");
+    
+    // Check if client is ready, then read buffer
+    if (client.available()) {
+        
+        httpClient = WebClient( client );
+        
+        int r = 0;
+        int method = 0;
+        char url[80];
+        int contentLen = 0;
+        
+        r = httpClient.readHTTPReqHeader(&method, url, &contentLen);
+        
+        if (r) router(method, url, client, contentLen);
+
+    }
+    
     doit();
 }
 
@@ -108,7 +135,7 @@ void Homekit::process( TCPClient client )
 // Uses current state information contained in this->pairingState
 // Controller methods are responsible for state update & HTTP resposne generation
 
-void Homekit::router(int method, const char *route)
+void Homekit::router(int method, const char *route, TCPClient client, int contentLen)
 {
 
     if( strstr( route, "/" ) )
@@ -128,7 +155,7 @@ void Homekit::router(int method, const char *route)
         // Respond with pair setup state & challenge
         
         if (method == HTTP_METHOD_POST)
-            respondControllerPairSetup();
+            respondControllerPairSetup(client, contentLen);
         
     }
     
@@ -175,11 +202,22 @@ void Homekit::router(int method, const char *route)
 // Uses current state information in this->pairingState
 // Pushes HTTP response directly on wire
 
-void Homekit::respondControllerPairSetup()
+void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
 {
     // Parse and respond to /pair-setup call
+    char *buffer = (char *)malloc(contentLen);
+    client.read(buffer, contentLen);
+    
+    TLV8Class tlvCodec = TLV8Class();
+    
+    uint8_t *encodedData = (uint8_t *)buffer;
+    uint16_t encodedDataLen = contentLen;
+    
+    tlv_result_t r = tlvCodec.decode(encodedData, encodedDataLen, &pairingState.commandTLV);
+    if (!r) return;
 
     tlv_t requestTLV = pairingState.commandTLV.object[0];
+    
     tlv_map_t response = tlv_map();
     
     switch (pairingState.state) {
@@ -191,12 +229,16 @@ void Homekit::respondControllerPairSetup()
                 && requestTLV.data[0] == kTLVType_Method_PairSetup)
             {
 
-                uint8_t key[17] = "DEADBEEFDEADBEEF";
-                uint8_t salt[17] = "DEADBEEFDEADBEEF";
+                uint8_t * key = NULL;
+                uint32_t key_len = 16;
+                uint8_t * salt = NULL;
+                uint32_t salt_len = 16;
                 
+                HAPController.getChallenge(&salt, &salt_len, &key, &key_len);
+
                 response.insert( tlv(kTLVType_State, kTLVType_State_M2) );
-                response.insert( tlv(kTLVType_PublicKey_Accessory, key, 16) );
-                response.insert( tlv(kTLVType_Salt, salt, 16) );
+                response.insert( tlv(kTLVType_PublicKey_Accessory, key, key_len) );
+                response.insert( tlv(kTLVType_Salt, salt, salt_len) );
              
                 pairingState.state = kTLVType_State_M3;
             }
@@ -293,6 +335,15 @@ void Homekit::respondControllerPairSetup()
     
     // Send serialized response
     
+    uint8_t * data = NULL;
+    uint16_t data_len = 0;
+    tlvCodec.encode(&response, &data, &data_len);
+    httpClient.writeHTTPRespHeader(200, "application/pairing+tlv8", data_len);
+    
+    client.write(data_len);
+    
+    // Free memory
+    free(buffer);
     
 }
 

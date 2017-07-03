@@ -16,6 +16,7 @@ struct TCPClient {
     int available( void ) { return (index < 125); };
     char read( void ) { return stream[index++]; };
     char read(const char * buffer) { return 'a'; };
+    char read(char * buffer, int len) { return 'a'; };
     long millis( void ) { return 60; };
     
     char * stream;
