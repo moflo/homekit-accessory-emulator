@@ -40,6 +40,10 @@
 		919A874D1F097B4C0093CCBD /* sha512.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A872A1F09798D0093CCBD /* sha512.cpp */; };
 		919A874E1F097B4C0093CCBD /* srp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A872C1F09798D0093CCBD /* srp.cpp */; };
 		919A874F1F097B4C0093CCBD /* wc_port.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87311F09798D0093CCBD /* wc_port.cpp */; };
+		919A87531F0A18F10093CCBD /* WebClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87511F0A18F10093CCBD /* WebClient.cpp */; };
+		919A87571F0A18FD0093CCBD /* homekit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87551F0A18FD0093CCBD /* homekit.cpp */; };
+		919A875A1F0A19680093CCBD /* WebClient_Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919A87591F0A19680093CCBD /* WebClient_Bridge.mm */; };
+		919A875D1F0A19750093CCBD /* HomeKit_Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919A875C1F0A19750093CCBD /* HomeKit_Bridge.mm */; };
 		91D5B0AC1F09482C0067C5C5 /* TLV8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91D5B0AA1F09482C0067C5C5 /* TLV8.cpp */; };
 		91D5B0AE1F0949D10067C5C5 /* TLV8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91D5B0AA1F09482C0067C5C5 /* TLV8.cpp */; };
 		91DC3E951EEB18F2005FCEFF /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 91DC3E941EEB18F2005FCEFF /* Podfile */; };
@@ -104,6 +108,15 @@
 		919A87311F09798D0093CCBD /* wc_port.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wc_port.cpp; sourceTree = "<group>"; };
 		919A87321F09798D0093CCBD /* wc_port.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wc_port.h; sourceTree = "<group>"; };
 		919A87331F09798D0093CCBD /* wolfmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wolfmath.h; sourceTree = "<group>"; };
+		919A87511F0A18F10093CCBD /* WebClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WebClient.cpp; sourceTree = "<group>"; };
+		919A87521F0A18F10093CCBD /* WebClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebClient.h; sourceTree = "<group>"; };
+		919A87551F0A18FD0093CCBD /* homekit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = homekit.cpp; sourceTree = "<group>"; };
+		919A87561F0A18FD0093CCBD /* homekit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homekit.h; sourceTree = "<group>"; };
+		919A87581F0A19680093CCBD /* WebClient_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebClient_Bridge.h; sourceTree = "<group>"; };
+		919A87591F0A19680093CCBD /* WebClient_Bridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebClient_Bridge.mm; sourceTree = "<group>"; };
+		919A875B1F0A19750093CCBD /* HomeKit_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeKit_Bridge.h; sourceTree = "<group>"; };
+		919A875C1F0A19750093CCBD /* HomeKit_Bridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HomeKit_Bridge.mm; sourceTree = "<group>"; };
+		919A875E1F0AA4BB0093CCBD /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		91D5B0AA1F09482C0067C5C5 /* TLV8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TLV8.cpp; sourceTree = "<group>"; };
 		91D5B0AB1F09482C0067C5C5 /* TLV8.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TLV8.hpp; sourceTree = "<group>"; };
 		91DC3E941EEB18F2005FCEFF /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -184,6 +197,29 @@
 			path = HAPController;
 			sourceTree = "<group>";
 		};
+		919A87501F0A18F10093CCBD /* WebClient */ = {
+			isa = PBXGroup;
+			children = (
+				919A87511F0A18F10093CCBD /* WebClient.cpp */,
+				919A87521F0A18F10093CCBD /* WebClient.h */,
+				919A875E1F0AA4BB0093CCBD /* test.h */,
+				919A87581F0A19680093CCBD /* WebClient_Bridge.h */,
+				919A87591F0A19680093CCBD /* WebClient_Bridge.mm */,
+			);
+			path = WebClient;
+			sourceTree = "<group>";
+		};
+		919A87541F0A18FD0093CCBD /* HomeKit */ = {
+			isa = PBXGroup;
+			children = (
+				919A87551F0A18FD0093CCBD /* homekit.cpp */,
+				919A87561F0A18FD0093CCBD /* homekit.h */,
+				919A875B1F0A19750093CCBD /* HomeKit_Bridge.h */,
+				919A875C1F0A19750093CCBD /* HomeKit_Bridge.mm */,
+			);
+			path = HomeKit;
+			sourceTree = "<group>";
+		};
 		91D5B0A91F09482C0067C5C5 /* TLV8 */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +258,8 @@
 			children = (
 				91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */,
 				91EB2CB51EEB1103003DBAA9 /* ViewController.swift */,
+				919A87541F0A18FD0093CCBD /* HomeKit */,
+				919A87501F0A18F10093CCBD /* WebClient */,
 				919A870F1F09798D0093CCBD /* HAPController */,
 				91D5B0A91F09482C0067C5C5 /* TLV8 */,
 				91EB2CB71EEB1103003DBAA9 /* Assets.xcassets */,
@@ -467,6 +505,7 @@
 			files = (
 				919A873D1F09798D0093CCBD /* sha.cpp in Sources */,
 				916A22EA1EEB276300FE8281 /* README.md in Sources */,
+				919A875A1F0A19680093CCBD /* WebClient_Bridge.mm in Sources */,
 				919122791F09556E004A7C15 /* TLV8_Bridge.mm in Sources */,
 				919A87401F09798D0093CCBD /* srp.cpp in Sources */,
 				919A873C1F09798D0093CCBD /* random.cpp in Sources */,
@@ -476,6 +515,7 @@
 				919A873F1F09798D0093CCBD /* sha512.cpp in Sources */,
 				919A87351F09798D0093CCBD /* ed25519.cpp in Sources */,
 				91EB2CB41EEB1103003DBAA9 /* AppDelegate.swift in Sources */,
+				919A87531F0A18F10093CCBD /* WebClient.cpp in Sources */,
 				919A87381F09798D0093CCBD /* integer.cpp in Sources */,
 				91D5B0AC1F09482C0067C5C5 /* TLV8.cpp in Sources */,
 				919A873A1F09798D0093CCBD /* memory.cpp in Sources */,
@@ -483,6 +523,8 @@
 				919A87371F09798D0093CCBD /* HAPController.mm in Sources */,
 				919A87391F09798D0093CCBD /* logging.cpp in Sources */,
 				919A87411F09798D0093CCBD /* wc_port.cpp in Sources */,
+				919A87571F0A18FD0093CCBD /* homekit.cpp in Sources */,
+				919A875D1F0A19750093CCBD /* HomeKit_Bridge.mm in Sources */,
 				919A87361F09798D0093CCBD /* HAPController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

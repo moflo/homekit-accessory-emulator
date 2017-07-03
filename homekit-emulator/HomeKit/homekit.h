@@ -14,7 +14,7 @@
 #   include "test.h"
 #endif
 
-#include "TLV8.h"
+#include "TLV8.hpp"
 #include "WebClient.h"
 
 #include <stdio.h>

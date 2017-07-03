@@ -16,9 +16,22 @@ This project allows for the testing of embedded C/C++ code for use in Particle /
     - HTTP1.1 compliant router
     - TLV8 codec
 
+
 Please note, the TCP and UDP code uses native Mac OS libraries as it is expected that embedded code will use native communication libraries for Particle / Arduino.
 
+
 Finally, this current implementation uses the crypto library from WolfSSL / WolfCrypto for ARM compatibility. You can find our more about this library online, [https://github.com/wolfSSL/wolfssl](https://github.com/wolfSSL/wolfssl).
+
+
+
+Architecture
+------------
+
+Mac OS based single window utility (ViewContoller.swift) calls Objective-C bridging functions (*.mm) to access C/C++ libraries contained in C++ classes.
+
+    - HAPController : HAPContoller.mm / HAPController_Bridge.h
+    - TLV8 : TLV8_Bridge.mm / TLV8_Bridge.h
+
 
 
 Testing
@@ -32,6 +45,7 @@ Install Wireshark app, and Bonjour Browser for protocol testing. Save UDP packet
 Use Apple supplied "HomeKit Accessory Simulator" to generate valid MDNS HomeKit packets and use the trace methods above to compare packet & response structure. This provides "blackbox" testing, you can observe valid UDP packet structure but we still need a method to compare use of custom crypto libraries (SHA512, etc.)
 
 Likewise, run this HomeKit Emulator MacOS app to compare MDNS packet structure & reponse protocol. This emulator uses native Cocoa MDNS (ie., NetService) function calls to register a HomeKit accessory, and can be observed within the iOS Home app. Importantly, it then uses 3rd party C/C++ libraries for SRP & Crypto functions so that those libraries can be validated before embedding them in Particle / Arduino project libraries, etc.
+
 
 
 Protocol
