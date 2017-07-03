@@ -9,6 +9,7 @@
 #ifndef Bridging_Header_h
 #define Bridging_Header_h
 
+#include "HomeKit_Bridge.h"
 #include "TLV8_Bridge.h"
 #include "HAPController_Bridge.h"
 

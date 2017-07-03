@@ -16,12 +16,12 @@ TLV8Class::~TLV8Class()
 {
 }
 
-tlv_result_t TLV8Class::encode(tlv_map_t * map, uint8_t ** stream_ptr, uint16_t * length)
+tlv_result_t TLV8Class::encode(tlv_map_t * map, uint8_t ** stream_ptr, uint32_t * length)
 {
 
     uint8_t * stream = *stream_ptr;
     struct tlv TLV8;
-    uint8_t offset = 0;
+    uint32_t offset = 0;
     uint8_t previous_type = 0xff;   // Should be an unused type code, assume 0xFF
     uint16_t remaining_bytes = 0;
 

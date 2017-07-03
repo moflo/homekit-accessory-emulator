@@ -124,7 +124,7 @@ void Homekit::process( TCPClient client )
         
         r = httpClient.readHTTPReqHeader(&method, url, &contentLen);
         
-        if (r) router(method, url, client, contentLen);
+        if (r) router(method, url, httpClient.client, contentLen);
 
     }
     
@@ -214,7 +214,7 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
     uint16_t encodedDataLen = contentLen;
     
     tlv_result_t r = tlvCodec.decode(encodedData, encodedDataLen, &pairingState.commandTLV);
-    if (!r) return;
+    if (r != TLV_SUCESS) return;
 
     tlv_t requestTLV = pairingState.commandTLV.object[0];
     
@@ -336,11 +336,11 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
     // Send serialized response
     
     uint8_t * data = NULL;
-    uint16_t data_len = 0;
+    uint32_t data_len = 0;
     tlvCodec.encode(&response, &data, &data_len);
     httpClient.writeHTTPRespHeader(200, "application/pairing+tlv8", data_len);
     
-    client.write(data_len);
+//    client.write(*data);
     
     // Free memory
     free(buffer);
@@ -414,3 +414,12 @@ void Homekit::doit()
     accessory.Characteristics[0].intValue = 1;
     
 }
+
+// Debug methods
+
+PairingCodesTLV8_t
+Homekit::getPairingState()
+{
+    return pairingState.state;
+}
+

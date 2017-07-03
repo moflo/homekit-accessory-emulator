@@ -71,7 +71,7 @@ public:
    TLV8Class();
    ~TLV8Class();
    
-   tlv_result_t encode(tlv_map_t * map, uint8_t ** stream_ptr, uint16_t * length);
+   tlv_result_t encode(tlv_map_t * map, uint8_t ** stream_ptr, uint32_t * length);
    tlv_result_t decode(uint8_t * stream, uint16_t length, tlv_map_t * map);
    tlv_t        TLVFromBuffer(uint8_t * stream, int16_t type, int16_t size);
    tlv_t        TLVAppendBuffers(uint8_t * stream1, uint8_t * stream2, int16_t type, int16_t size1, int16_t size2);

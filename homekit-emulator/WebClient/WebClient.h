@@ -52,7 +52,10 @@ public:
     uint8_t readHTTPRespHeader( int* status, char* mime_type, int* contentLen );
     uint8_t waitForResponse( int timeout ); // in msecs
     size_t write_pgm( const char* str );
-    
+
+    // TODO: can this be made private?
+    TCPClient client;
+
 private:
     int getHTTPMethodFromStr( const char* str );
     int getHTTPVersionFromStr( const char* str );
@@ -62,8 +65,6 @@ private:
     
     uint8_t mBuffer[WEB_CLIENT_BUFFER_SIZE+1];
     int mBufferIndex;
-    
-    TCPClient client;
 };
 
 

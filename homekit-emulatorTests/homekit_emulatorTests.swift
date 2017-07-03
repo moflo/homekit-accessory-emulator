@@ -117,7 +117,17 @@ class homekit_emulatorTests: XCTestCase {
         print( dict.debugDescription )
     }
     
-    
+    func testHomeKit() {
+        
+        let testObject = newHomeKit()
+        
+        let r = testObject.testProcessHTTP("POST /pair-setup HTTP/1.1\nHost: emulator._hap._tcp.local\nContent-Length: 3\nContent-Type: application/pairing+tlv8\n\r\n\r\u{01}\u{01}\u{01}\n\r")
+        
+        print ( r )
+        
+        expect(r).to(equal( 0x01 /* kTLVType_State_M1 */ ))
+        
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

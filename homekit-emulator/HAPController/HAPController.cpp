@@ -107,6 +107,10 @@ HAPControllerClass::getChallenge(uint8_t **salt,uint32_t *salt_len, uint8_t **ke
     uint32_t v_len = (uint32_t)v_size;
     *key_len = v_len;
     
+    *salt = cli.salt;
+    *salt_len = cli.saltSz;
+    
+    
     return r;
     
 }

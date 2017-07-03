@@ -73,7 +73,7 @@
     TLV8Class tlv = TLV8Class();
 
     uint8_t *encodedData = NULL;
-    uint16_t encodedDataLen = 0;
+    uint32_t encodedDataLen = 0;
     
     tlv_result_t r = tlv.encode(&map, &encodedData, &encodedDataLen);
     

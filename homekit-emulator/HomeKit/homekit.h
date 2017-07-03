@@ -215,6 +215,9 @@ public:
     HAPControllerClass HAPController;
     WebClient httpClient;
     
+    // Debug methods
+    PairingCodesTLV8_t getPairingState();
+    
 private:
     HomekitAccessory accessory;
     char *name;

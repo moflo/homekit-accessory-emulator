@@ -16,5 +16,18 @@
 {
     return 0;
 }
+-(int) testProcessHTTP:(NSString *)streeam
+{
+    TCPClient tcpStream;
+    NSData *bytes = [streeam dataUsingEncoding:NSASCIIStringEncoding];
+    uint8_t *data = (uint8_t *)[bytes bytes];
+    tcpStream.stream = (char *)data;
+
+    Homekit HK = Homekit();
+    
+    HK.process( tcpStream );
+    
+    return HK.getPairingState();
+}
 
 @end

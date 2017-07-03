@@ -13,6 +13,8 @@
 
 @interface newHomeKit : NSObject
 -(int) newObject;
+-(int) testProcessHTTP:(NSString *)streeam;
+
 @end
 
 #endif /* HomeKit_Bridge_h */
