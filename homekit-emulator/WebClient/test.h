@@ -11,8 +11,10 @@
 
 #include <string>
 
+// Callback function to test data writes
 typedef void (*write_callback_t)(char * buffer,int len);
 
+// Stub TCPClient to emulate Particle / Arduino native TCP client protocols
 struct TCPClient {
     int write(char * buffer, int len) { callback(buffer, len); return 0; };
     int write(const char *buffer) { callback((char *)buffer, (int)strlen(buffer)); return 0; };
@@ -20,7 +22,7 @@ struct TCPClient {
     int available( void ) { return (index < 125); };
     char read( void ) { return stream[index++]; };
     char read(const char * buffer) { return 'a'; };
-    int read(char * buffer, int len) { memcpy(buffer, &stream[index+1], len); return len;};
+    int read(char * buffer, int len) { memcpy(buffer, &stream[index], len); return len;};
     long millis( void ) { return 60; };
     
     char * stream;

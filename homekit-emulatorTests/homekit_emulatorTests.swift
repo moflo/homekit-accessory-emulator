@@ -121,11 +121,34 @@ class homekit_emulatorTests: XCTestCase {
         
         let testObject = newHomeKit()
         
-        let r = testObject.testProcessHTTP("POST /pair-setup HTTP/1.1\nHost: emulator._hap._tcp.local\nContent-Length: 3\nContent-Type: application/pairing+tlv8\n\r\n\r\u{01}\u{01}\u{01}\n\r")
+        expect(testObject).notTo(beNil())
         
-        print ( r )
+    }
+    
+    func testHomeKitProcess() {
         
-        expect(r).to(equal( 0x01 /* kTLVType_State_M1 */ ))
+        let testObject = newHomeKit()
+        
+        let dataString = "POST /pair-setup HTTP/1.1\nHost: emulator._hap._tcp.local\nContent-Length: 3\nContent-Type: application/pairing+tlv8\r\n\r\n\u{00}\u{01}\u{01}\u{01}\n\r"
+        
+//        NSData *bytes = [dataString dataUsingEncoding:NSASCIIStringEncoding];
+        let data :Data = dataString.data(using: .ascii)!
+
+        let r = testObject.processHTTP(data)
+        print( r.debugDescription )
+        
+        let dict = r as! Dictionary<String,Any>
+        
+        let code = dict["state"] as! Int
+        print( code )
+        
+        expect(code).to(equal( 0x01 /* kTLVType_State_M1 */ ))
+
+        let outputBuffer : Data = dict["outputBuffer"] as! Data
+        print( outputBuffer.count )
+
+        expect(outputBuffer.count).to(equal( 100 /* output byte count */ ))
+        
         
     }
 

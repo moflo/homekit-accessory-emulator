@@ -31,11 +31,23 @@ Mac OS based single window utility (ViewContoller.swift) calls Objective-C bridg
 
     - HAPController : HAPContoller.mm / HAPController_Bridge.h
     - TLV8 : TLV8_Bridge.mm / TLV8_Bridge.h
+    - WebClient : WebClient_Bridge.mm / WebClient_Bridge.h
 
 
 
 Testing
--------
+=======
+
+
+Library Unit Tests
+------------------
+
+Using XCode unit testing with Swift Nible library and the Objective-C bridges in the `homekit-emulatorTests` target. Run individual unit tests within XCode, or via the CLI.
+
+
+
+Bonjour Testing
+---------------
 
 Install Wireshark app, and Bonjour Browser for protocol testing. Save UDP packets on local ethernet channel using the TCPdump command line tool and open the results in Wireshark to test the validity of MDNS packets:
 
@@ -48,8 +60,8 @@ Likewise, run this HomeKit Emulator MacOS app to compare MDNS packet structure &
 
 
 
-Protocol
---------
+HAP Protocol
+============
 
 HTTP1.1 based pairing process. Initial request from Home app is a POST request to start pairing process...
 
@@ -66,6 +78,6 @@ Hex Dump:
 
 
 TLV8 Payload:
-    00 01 00 06 01 01 00 00
+    00 01 00 06 01 01
 
 

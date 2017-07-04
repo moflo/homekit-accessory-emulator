@@ -20,7 +20,7 @@
     return 0;
 }
 
-NSData *outputBuffer;
+NSMutableData *outputBuffer;
 
 void callback(char *buffer, int len)
 {
@@ -29,23 +29,36 @@ void callback(char *buffer, int len)
     NSLog(@"Write %@", output);
     
 //    outputBuffer = [NSData dataWithBytes:buffer length:len];
+    [outputBuffer appendBytes:buffer length:len];
 
 };
 
--(int) testProcessHTTP:(NSString *)streeam
-{
-    TCPClient tcpStream;
-    NSData *bytes = [streeam dataUsingEncoding:NSASCIIStringEncoding];
-    uint8_t *data = (uint8_t *)[bytes bytes];
-    tcpStream.stream = (char *)data;
-    tcpStream.callback = callback;
-    
 
+-(NSDictionary *) processHTTP:(NSData *)stream
+{
+    
+    TCPClient tcpStream;
+    tcpStream.stream = (char *)[stream bytes];
+    tcpStream.callback = callback;
+    outputBuffer = [[NSMutableData alloc] initWithCapacity:255];
+    
     Homekit HK = Homekit();
     
     HK.process( tcpStream );
     
-    return HK.getPairingState();
+    uint8_t state = HK.getPairingState();
+
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:4];
+    
+    NSNumber *state_value = [NSNumber numberWithInt:state];
+    [dict setObject:state_value forKey:@"state"];
+
+    NSData *output = outputBuffer;
+    [dict setObject:output forKey:@"outputBuffer"];
+
+    return (NSDictionary *)dict;
+    
 }
 
 @end

@@ -13,7 +13,7 @@
 
 @interface newHomeKit : NSObject
 -(int) newObject;
--(int) testProcessHTTP:(NSString *)streeam;
+-(NSDictionary *) processHTTP:(NSData*)stream;
 
 @end
 
