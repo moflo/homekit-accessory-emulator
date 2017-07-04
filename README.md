@@ -1,7 +1,9 @@
 # homekit-accessory-emulator
-HomeKit Accessory Emulation for Particle / Arduino Development Boards
+HomeKit Accessory Emulation for Particle / Arduino Development Boards. 
 
-Using recently released HomeKit Non-commercial HAP Specification to create an embedded accessory client. Goal of this project is to test C/C++ based SHA-512 based SRP enabled HAP protocols for eventual porting to Particle.io or Arduino libraries.
+
+Using recently released HomeKit Non-commercial HAP Specification to create an embedded accessory client. Goal of this project is to test C/C++ based SHA-512 based SRP enabled HAP protocols for eventual porting to Particle.io or Arduino libraries. This project contains a Mac OS based XCode project to test embedded code available here: [https://github.com/moflo/homekit-particle](https://github.com/moflo/homekit-particle)
+
 
 
 Motivation
