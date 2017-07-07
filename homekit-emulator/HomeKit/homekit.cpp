@@ -219,6 +219,7 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
     tlv_t requestTLV = pairingState.commandTLV.object[0];
     
     tlv_map_t response = tlv_map();
+    int responseCode = 200;
     
     switch (pairingState.state) {
             
@@ -245,6 +246,7 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
             else
             {
                 // Unexpected error send kTLVError_Unavailable
+                responseCode = 400;
                 
                 response.insert( tlv(kTLVType_State, kTLVType_State_M2) );
                 response.insert( tlv(kTLVType_Error, kTLVError_Unavailable) );
@@ -277,7 +279,8 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
             else
             {
                 // Unexpected error send kTLVError_Unavailable
-                
+                responseCode = 400;
+
                 response.insert( tlv(kTLVType_State, kTLVType_State_M4) );
                 response.insert( tlv(kTLVType_Error, kTLVError_Authentication) );
                 
@@ -318,7 +321,8 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
             else
             {
                 // Unexpected error send kTLVError_Unavailable
-                
+                responseCode = 400;
+
                 response.insert( tlv(kTLVType_State, kTLVType_State_M6) );
                 response.insert( tlv(kTLVType_Error, kTLVError_Authentication) );
                 
@@ -329,6 +333,7 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
             
         default:
             pairingState.state = kTLVType_State_None;
+            responseCode = 400;
             response.count = 0;
             break;
     }
@@ -338,7 +343,7 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
     uint8_t * data = NULL;
     uint32_t data_len = 0;
     tlvCodec.encode(&response, &data, &data_len);
-    httpClient.writeHTTPRespHeader(200, "application/pairing+tlv8", data_len);
+    httpClient.writeHTTPRespHeader(responseCode, "application/pairing+tlv8", data_len);
     
 //    client.write(*data);
     

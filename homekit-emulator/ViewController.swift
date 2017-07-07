@@ -36,6 +36,8 @@ class ViewController: NSViewController {
 
         displayString("Loading…")
 
+        Emulator.sharedInstance.setup()
+        
         // Start Bonjour service discovery
         enum ConnectionType {
             case Browser, AsyncSock, NetService
@@ -275,6 +277,8 @@ extension ViewController : GCDAsyncSocketDelegate {
         displayString("GCDAsyncSocket: didRead - %@", data.debugDescription)
         
         print(data)
+        
+        Emulator.sharedInstance.processData(stream: data)
         
     }
     

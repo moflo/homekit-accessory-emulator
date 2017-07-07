@@ -12,6 +12,7 @@
 		916A22EA1EEB276300FE8281 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 916A22E91EEB276300FE8281 /* README.md */; };
 		919122791F09556E004A7C15 /* TLV8_Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919122781F09556E004A7C15 /* TLV8_Bridge.mm */; };
 		9191227A1F0956B0004A7C15 /* TLV8_Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919122781F09556E004A7C15 /* TLV8_Bridge.mm */; };
+		9191A2551F101B0300582E2B /* Emulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9191A2541F101B0300582E2B /* Emulator.swift */; };
 		919A87341F09798D0093CCBD /* chacha20_poly1305.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87101F09798D0093CCBD /* chacha20_poly1305.cpp */; };
 		919A87351F09798D0093CCBD /* ed25519.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87121F09798D0093CCBD /* ed25519.cpp */; };
 		919A87361F09798D0093CCBD /* HAPController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919A87151F09798D0093CCBD /* HAPController.cpp */; };
@@ -72,6 +73,7 @@
 		919122781F09556E004A7C15 /* TLV8_Bridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TLV8_Bridge.mm; sourceTree = "<group>"; };
 		9191227B1F0956E6004A7C15 /* TLV8_Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLV8_Bridge.h; sourceTree = "<group>"; };
 		9191227C1F0957F1004A7C15 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		9191A2541F101B0300582E2B /* Emulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emulator.swift; sourceTree = "<group>"; };
 		919A87101F09798D0093CCBD /* chacha20_poly1305.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chacha20_poly1305.cpp; sourceTree = "<group>"; };
 		919A87111F09798D0093CCBD /* chacha20_poly1305.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chacha20_poly1305.h; sourceTree = "<group>"; };
 		919A87121F09798D0093CCBD /* ed25519.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ed25519.cpp; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				91EB2CB31EEB1103003DBAA9 /* AppDelegate.swift */,
 				91EB2CB51EEB1103003DBAA9 /* ViewController.swift */,
+				9191A2541F101B0300582E2B /* Emulator.swift */,
 				919A87541F0A18FD0093CCBD /* HomeKit */,
 				919A87501F0A18F10093CCBD /* WebClient */,
 				919A870F1F09798D0093CCBD /* HAPController */,
@@ -521,6 +524,7 @@
 				919A873A1F09798D0093CCBD /* memory.cpp in Sources */,
 				919A873B1F09798D0093CCBD /* misc.cpp in Sources */,
 				919A87371F09798D0093CCBD /* HAPController.mm in Sources */,
+				9191A2551F101B0300582E2B /* Emulator.swift in Sources */,
 				919A87391F09798D0093CCBD /* logging.cpp in Sources */,
 				919A87411F09798D0093CCBD /* wc_port.cpp in Sources */,
 				919A87571F0A18FD0093CCBD /* homekit.cpp in Sources */,
@@ -678,6 +682,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobileflowllc.homekit-emulator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./homekit-emulator/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -693,6 +698,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobileflowllc.homekit-emulator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./homekit-emulator/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
