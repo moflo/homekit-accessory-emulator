@@ -12,7 +12,7 @@ Motivation
 This project allows for the testing of embedded C/C++ code for use in Particle / Arduino boards by briding the C/C++ code with high-level Swift and Objective-C based native HomeKit APIs. This Mac OS based application acts as a HomeKit accessory, broadcasting it's presence over Bonjour to be discovered by the iOS Home app. Once discovered, the user starts the pairing process to use the Home app to establish a connection with thie emulator. This process allows for the testing of several C/C++ libraries which can then be used in the embedded device. Specifically, this emulator allows for the testing of the following libraries:
 
     - SRP protocol with N = 3072, g = 5 radix
-    - ChaCha20_Polo1305 cypher
+    - ChaCha20_Poly1305 cypher
     - ed25519 codec
     - sha512 encoding
     - HTTP1.1 compliant router
@@ -34,6 +34,24 @@ Mac OS based single window utility (ViewContoller.swift) calls Objective-C bridg
     - HAPController : HAPContoller.mm / HAPController_Bridge.h
     - TLV8 : TLV8_Bridge.mm / TLV8_Bridge.h
     - WebClient : WebClient_Bridge.mm / WebClient_Bridge.h
+    - Swift based testing : homekit-emulatorTests
+
+
+
+Requirements
+------------
+
+* macOS 10.10+ (v1.1.2+)
+* Xcode 8 with Swift 3
+* Cocoapods 1.2.1+
+
+Installation
+------------
+
+#### CocoaPods
+
+    pod install
+
 
 
 
