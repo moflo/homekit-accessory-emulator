@@ -36,7 +36,15 @@ class ViewController: NSViewController {
 
         displayString("Loading…")
 
-        Emulator.sharedInstance.setup()
+        // Emulator initialization and callback
+        Emulator.sharedInstance.setup {
+            (stream) in
+        
+            self.displayString("Write byte count: ", stream.count)
+            
+            self.asyncSocket.write(stream, withTimeout: -1, tag: 0)
+            
+        }
         
         // Start Bonjour service discovery
         enum ConnectionType {
