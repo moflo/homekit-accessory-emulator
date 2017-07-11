@@ -59,4 +59,11 @@ class Emulator {
         
     }
     
+    // Reset on Error method
+    func reset() {
+        
+        homeKitServer?.reset()
+        
+    }
+    
 }

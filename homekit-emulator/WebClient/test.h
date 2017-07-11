@@ -19,6 +19,12 @@ struct TCPClient {
     int write(char * buffer, int len) { callback(buffer, len); return 0; };
     int write(const char *buffer) { callback((char *)buffer, (int)strlen(buffer)); return 0; };
     int write(const char buffer) { callback((char *)&buffer, 1); return 0;};
+    int write( int number) {
+        char output[3];
+        sprintf( output, "%03d", number);
+        callback( output, 3);
+        return 0;
+    }
     int available( void ) { return (index < 125); };
     char read( void ) { return stream[index++]; };
     char read(const char * buffer) { return 'a'; };

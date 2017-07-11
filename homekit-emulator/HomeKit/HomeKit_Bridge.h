@@ -14,7 +14,7 @@
 @interface newHomeKit : NSObject
 -(int) newObject;
 -(NSDictionary *) processHTTP:(NSData*)stream;
-
+-(void) reset;
 @end
 
 #endif /* HomeKit_Bridge_h */

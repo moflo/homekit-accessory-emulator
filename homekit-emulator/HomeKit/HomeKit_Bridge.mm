@@ -22,6 +22,8 @@
 
 NSMutableData *outputBuffer;
 
+Homekit *HK = NULL;
+
 void callback(char *buffer, int len)
 {
     NSString *output = [[NSString alloc] initWithBytes:buffer length:len encoding:NSUTF8StringEncoding];
@@ -42,11 +44,12 @@ void callback(char *buffer, int len)
     tcpStream.callback = callback;
     outputBuffer = [[NSMutableData alloc] initWithCapacity:255];
     
-    Homekit HK = Homekit();
+    if (HK == NULL)
+        HK = new Homekit;
     
-    HK.process( tcpStream );
+    HK->process( tcpStream );
     
-    uint8_t state = HK.getPairingState();
+    uint8_t state = HK->getPairingState();
 
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:4];
@@ -59,6 +62,12 @@ void callback(char *buffer, int len)
 
     return (NSDictionary *)dict;
     
+}
+
+-(void) reset
+{
+    // TODO: free !
+    HK = new Homekit;
 }
 
 @end

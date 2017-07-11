@@ -100,4 +100,26 @@ Hex Dump:
 TLV8 Payload:
     00 01 00 06 01 01
 
+HAP Encoding:
 
+    Type 00 = kTLVType_Method_None
+    Data 00 = kTLVType_State_None
+
+    Type 06 = kTLVType_State
+    Data 01 = kTLVType_State_M1
+
+    Questions: 
+        1, why is this a two-tuple TLV8 payload?
+        2, why is the second tuple the stat command?
+
+
+Emulator Response:
+    48545450 2f312e30 20323030 204f4b0d 0a436f6e 74656e74 2d547970 653a2061 70706c69 63617469 6f6e2f70 61697269 6e672b74 6c76380d 0a436f6e 74656e74 2d4c656e 6774683a 20303030 0d0a0d0a
+
+    HTTP/1.1 200 OK
+    Content-Type: application/pairing+tlv8
+    Content-Length: 000
+
+
+Result:
+    Error socketDidDisconnect - "unknown error"

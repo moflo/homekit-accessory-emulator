@@ -128,7 +128,7 @@ uint8_t WebClient::writeHTTPRespHeader( int status, const char* mime_type, int c
         return false;
     
     // write HTTP header.
-    client.write( "HTTP/1.0" );
+    client.write( "HTTP/1.1" );
     client.write( ' ' );
     switch( status )
     {

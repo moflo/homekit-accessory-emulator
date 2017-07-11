@@ -292,6 +292,8 @@ extension ViewController : GCDAsyncSocketDelegate {
     
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         displayString("GCDAsyncSocket: socketDidDisconnect - %@", err?.localizedDescription ?? "unknown error")
+        
+        Emulator.sharedInstance.reset()
     }
     
     

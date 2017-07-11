@@ -217,6 +217,7 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
     if (r != TLV_SUCESS) return;
 
     tlv_t requestTLV = pairingState.commandTLV.object[0];
+    tlv_t commandTLV = pairingState.commandTLV.object[1];
     
     tlv_map_t response = tlv_map();
     int responseCode = 200;
@@ -225,9 +226,21 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
             
         case kTLVType_State_None:
             // Start pairing process - SRP Start Response
-            if (requestTLV.type == kTLVType_Method &&
-                requestTLV.data[0] == kTLVType_Method_PairSetup)
+            if (commandTLV.type == kTLVType_State &&
+                commandTLV.data[0] == kTLVType_State_M1)
             {
+
+                // Send 200 OK response
+                
+//                pairingState.state = kTLVType_State_M1;
+//            }
+//            break;
+//            
+//        case kTLVType_State_M1:
+//            // Start pairing process - SRP Start Response
+//            if (commandTLV.type == kTLVType_Method &&
+//                commandTLV.data[0] == kTLVType_Method_PairSetup)
+//            {
 
                 uint8_t * key = NULL;
                 uint32_t key_len = 16;
@@ -343,7 +356,7 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
     tlvCodec.encode(&response, &data, &data_len);
     httpClient.writeHTTPRespHeader(responseCode, "application/pairing+tlv8", data_len);
     
-//    client.write(*data);
+    client.write((char *)data, data_len);
     
     // Free memory
     free(buffer);
