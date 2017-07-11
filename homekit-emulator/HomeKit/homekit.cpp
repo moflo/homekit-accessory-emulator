@@ -225,9 +225,8 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
             
         case kTLVType_State_None:
             // Start pairing process - SRP Start Response
-            if (pairingState.commandTLV.count == 1
-                && requestTLV.type == kTLVType_Method
-                && requestTLV.data[0] == kTLVType_Method_PairSetup)
+            if (requestTLV.type == kTLVType_Method &&
+                requestTLV.data[0] == kTLVType_Method_PairSetup)
             {
 
                 uint8_t * key = NULL;
@@ -258,9 +257,8 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
             
         case kTLVType_State_M3:
             // Receive device pairing information - SRP Verify Request
-            if (pairingState.commandTLV.count == 3
-                && requestTLV.type == kTLVType_Method
-                && requestTLV.data[0] == kTLVType_Method_PairSetup)
+            if (requestTLV.type == kTLVType_Method &&
+                requestTLV.data[0] == kTLVType_Method_PairSetup)
             {
                 tlv_t publickKeyTLV = pairingState.commandTLV.object[1];
                 tlv_t proofTLV = pairingState.commandTLV.object[2];
@@ -291,9 +289,9 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
             
         case kTLVType_State_M5:
             // Receive key exchange request - SRP Exchange Request
-            if (pairingState.commandTLV.count == 2
-                && requestTLV.type == kTLVType_Method
-                && requestTLV.data[0] == kTLVType_Method_PairSetup)
+            if (//pairingState.commandTLV.count == 2 &&
+                requestTLV.type == kTLVType_Method &&
+                requestTLV.data[0] == kTLVType_Method_PairSetup)
             {
                 tlv_t dataTLV = pairingState.commandTLV.object[1];
                 
