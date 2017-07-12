@@ -28,6 +28,7 @@ public:
     int SRPClientInit(Srp *cli);
 
     int getChallenge(uint8_t **salt,uint32_t *salt_len, uint8_t **key, uint32_t *key_len);
+    int getChallengeTest(uint8_t **salt,uint32_t *salt_len, uint8_t **key, uint32_t *key_len);
     
 };
 

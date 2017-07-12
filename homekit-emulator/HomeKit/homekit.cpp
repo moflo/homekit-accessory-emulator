@@ -247,7 +247,7 @@ void Homekit::respondControllerPairSetup(TCPClient client, int contentLen)
                 uint8_t * salt = NULL;
                 uint32_t salt_len = 16;
                 
-                HAPController.getChallenge(&salt, &salt_len, &key, &key_len);
+                HAPController.getChallengeTest(&salt, &salt_len, &key, &key_len);
 
                 response.insert( tlv(kTLVType_State, kTLVType_State_M2) );
                 response.insert( tlv(kTLVType_PublicKey_Accessory, key, key_len) );

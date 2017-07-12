@@ -46,99 +46,50 @@ class ViewController: NSViewController {
             
         }
         
-        // Start Bonjour service discovery
-        enum ConnectionType {
-            case Browser, AsyncSock, NetService
+    
+        asyncSocket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
+        
+        do {
+            try asyncSocket.accept(onPort: 0)
         }
-        let method :ConnectionType = .AsyncSock
+        catch {
+            displayString("Error on acceptOnPort")
+        }
         
-        switch method {
-        case .Browser:
         
-            netServiceBrowser.delegate = self
-            netServiceBrowser.searchForServices(ofType: "_hap._tcp", inDomain: "")
-            //            netServiceBrowser.searchForServices(ofType: "_hap._tcp.", inDomain: "local.")
-            
-        case .AsyncSock:
-            
-            asyncSocket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
-            
-            do {
-                try asyncSocket.accept(onPort: 0)
-            }
-            catch {
-                displayString("Error on acceptOnPort")
-            }
-            
-            
-            let port = Int32(asyncSocket.localPort)
-            
-            displayString("Starting service on port: %@", port)
-            
-            serverService = NetService(domain: "", type: "_hap._tcp.", name: DEVICE.name, port: port)
-            serverService.startMonitoring()
+        let port = Int32(asyncSocket.localPort)
+        
+        displayString("Starting service on port: %@", port)
+        
+        serverService = NetService(domain: "", type: "_hap._tcp.", name: DEVICE.name, port: port)
+        serverService.startMonitoring()
 //            serverService.publish(options: [.listenForConnections])
-            serverService.publish()
-            
-            let txtDict :[String:String] = [
-                "pv": "1.0", // state
-                "id": DEVICE.device_id, // identifier
-                "c#": "1", // version
-                "s#": "1", // state
-                "sf": (DEVICE.isPaired ? "0" : "1"), // discoverable
-                "ff": "0", // mfi compliant
-                "md": DEVICE.name, // name
-                //                "ci": category.rawValue // category identifier
-                "ci": "1" // category identifier
-            ]
-            
-            //            let record = txtDict.dictionary(key: { $0.key }, value: { $0.value.data(using: .utf8)! })
-            var record = [String:Data]()
-            txtDict.forEach({ ( source: (key: String, value: String)) in
-                record[source.key] = source.value.data(using: .utf8)!
-            })
-            
-            
-            let txtData = NetService.data(fromTXTRecord: record)
-            serverService.setTXTRecord(txtData)
-            
-            
-            serverService.delegate = self
-            
-        case .NetService:
-            
-            serverService = NetService(domain: "local.", type: "_hap._tcp.", name: DEVICE.name, port: 0)
-            serverService.startMonitoring()
-            serverService.publish(options: [.listenForConnections])
-            
-            let txtDict :[String:String] = [
-                "pv": "1.0", // state
-                "id": DEVICE.device_id, // identifier
-                "c#": "1", // version
-                "s#": "1", // state
-                "sf": (DEVICE.isPaired ? "0" : "1"), // discoverable
-                "ff": "0", // mfi compliant
-                "md": DEVICE.name, // name
-//                "ci": category.rawValue // category identifier
-                "ci": "1" // category identifier
-            ]
-
-//            let record = txtDict.dictionary(key: { $0.key }, value: { $0.value.data(using: .utf8)! })
-            var record = [String:Data]()
-            txtDict.forEach({ ( source: (key: String, value: String)) in
-                record[source.key] = source.value.data(using: .utf8)!
-            })
-
-            
-            let txtData = NetService.data(fromTXTRecord: record)
-            serverService.setTXTRecord(txtData)
-
-            
-            serverService.delegate = self
-
-            
-        }
+        serverService.publish()
         
+        let txtDict :[String:String] = [
+            "pv": "1.0", // state
+            "id": DEVICE.device_id, // identifier
+            "c#": "1", // version
+            "s#": "1", // state
+            "sf": (DEVICE.isPaired ? "0" : "1"), // discoverable
+            "ff": "0", // mfi compliant
+            "md": DEVICE.name, // name
+            //                "ci": category.rawValue // category identifier
+            "ci": "1" // category identifier
+        ]
+        
+        //            let record = txtDict.dictionary(key: { $0.key }, value: { $0.value.data(using: .utf8)! })
+        var record = [String:Data]()
+        txtDict.forEach({ ( source: (key: String, value: String)) in
+            record[source.key] = source.value.data(using: .utf8)!
+        })
+        
+        
+        let txtData = NetService.data(fromTXTRecord: record)
+        serverService.setTXTRecord(txtData)
+        
+        
+        serverService.delegate = self
         
         
         displayString("Waiting…")
