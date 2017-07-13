@@ -40,7 +40,7 @@ class ViewController: NSViewController {
         Emulator.sharedInstance.setup {
             (stream) in
         
-            self.displayString("Write byte count: ", stream.count)
+            self.displayString("Write byte count: %@", stream.count)
             
             self.asyncSocket.write(stream, withTimeout: -1, tag: 0)
             
@@ -48,6 +48,8 @@ class ViewController: NSViewController {
         
     
         asyncSocket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
+        
+        asyncSocket.autoDisconnectOnClosedReadStream = false
         
         do {
             try asyncSocket.accept(onPort: 0)
@@ -105,6 +107,7 @@ class ViewController: NSViewController {
     func displayString(_ info :String, _ arguments: CVarArg...) {
         let text = String(format: NSLocalizedString(info, comment: ""), arguments)
         textView.textStorage?.append(NSAttributedString(string: "\(text)\n"))
+        print( text) 
 
     }
     
@@ -235,7 +238,8 @@ extension ViewController : GCDAsyncSocketDelegate {
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         displayString("GCDAsyncSocket: didRead - %@", data.debugDescription)
         
-        print(data)
+        print(String.init(data: data, encoding: .utf8) ?? data.debugDescription)
+        print(data.map { b in String(format: "%02X", b) }.joined())
         
         Emulator.sharedInstance.processData(stream: data)
         

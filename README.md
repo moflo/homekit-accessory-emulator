@@ -123,3 +123,16 @@ Emulator Response:
 
 Result:
     Error socketDidDisconnect - "unknown error"
+
+
+GCDAsyncSocket:  Accepted new socket from (
+"192.168.15.5",
+50932
+):0
+GCDAsyncSocket: didRead - (
+"126 bytes"
+)
+Write byte count: 
+GCDAsyncSocket: socketDidDisconnect - (
+"unknown error"
+)
