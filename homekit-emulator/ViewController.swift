@@ -42,7 +42,12 @@ class ViewController: NSViewController {
         
             self.displayString("Write byte count: %@", stream.count)
             
-            self.asyncSocket.write(stream, withTimeout: -1, tag: 0)
+            self.asyncSocket.write(stream, withTimeout: 1000, tag: 0)
+            
+            print("Write Buffer - raw")
+            print(String.init(data: stream, encoding: .utf8) ?? stream.debugDescription)
+            print(stream.map { b in String(format: "%02X", b) }.joined())
+            print()
             
         }
         
