@@ -3,7 +3,7 @@ use_frameworks!
 
 
 def development_pods
-    pod 'CocoaAsyncSocket'
+    pod 'BlueSocket'
 end
 
 def testing_pods

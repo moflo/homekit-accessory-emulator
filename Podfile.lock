@@ -1,15 +1,15 @@
 PODS:
-  - CocoaAsyncSocket (7.6.1)
+  - BlueSocket (0.12.53)
   - Nimble (7.0.1)
 
 DEPENDENCIES:
-  - CocoaAsyncSocket
+  - BlueSocket
   - Nimble
 
 SPEC CHECKSUMS:
-  CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
+  BlueSocket: baba35078a17207414c37af7b7519f7f553457f7
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
 
-PODFILE CHECKSUM: 5d68fbbba06cd909d94173ff37b09e78b69fa3ac
+PODFILE CHECKSUM: 6cf446c9fab85186935953d5e92cee9047429f50
 
 COCOAPODS: 1.2.1

@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import CocoaAsyncSocket
+import Socket
 
 struct DEVICE {
     
@@ -24,7 +24,8 @@ class ViewController: NSViewController {
     var serverService: NetService!
     var serverAddresses = [Data]()
     var connectedSockets = [Data]()
-    var asyncSocket: GCDAsyncSocket!
+    var asyncSocket: Socket?
+    var queue: DispatchQueue!
     var connected: Bool = false
 
     @IBOutlet weak var codeView: NSTextField!
@@ -42,8 +43,6 @@ class ViewController: NSViewController {
         
             self.displayString("Write byte count: %@", stream.count)
             
-            self.asyncSocket.write(stream, withTimeout: 1000, tag: 0)
-            
             print("Write Buffer - raw")
             print(String.init(data: stream, encoding: .utf8) ?? stream.debugDescription)
             print(stream.map { b in String(format: "%02X", b) }.joined())
@@ -51,20 +50,17 @@ class ViewController: NSViewController {
             
         }
         
-    
-        asyncSocket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
-        
-        asyncSocket.autoDisconnectOnClosedReadStream = false
-        
+
         do {
-            try asyncSocket.accept(onPort: 0)
+            asyncSocket = try Socket.create(family: .inet, type: .stream, proto: .tcp)
+            try asyncSocket!.listen(on: 0)
         }
         catch {
             displayString("Error on acceptOnPort")
         }
         
         
-        let port = Int32(asyncSocket.localPort)
+        let port = Int32(asyncSocket!.listeningPort)
         
         displayString("Starting service on port: %@", port)
         
@@ -100,7 +96,77 @@ class ViewController: NSViewController {
         
         
         displayString("Waiting…")
+        
+        queue = DispatchQueue(label: "hap.socket-listener", qos: .utility, attributes: [.concurrent])
 
+        queue.async {
+            guard self.asyncSocket != nil else {
+                self.displayString("Error, asyncSocket is nil")
+                return
+            }
+            
+            while self.asyncSocket!.isListening {
+                do {
+                    let client = try self.asyncSocket!.acceptClientConnection()
+                    self.displayString("Accepted connection from %@", client.remoteHostname)
+                    DispatchQueue.main.async {
+                        _ = self.listen(socket: client, queue: self.queue)
+                    }
+                } catch {
+                    self.displayString("Could not accept connections for listening socket %@", error.localizedDescription)
+                    break
+                }
+            }
+            self.asyncSocket!.close()
+        }
+
+
+    }
+    
+    func listen(socket: Socket, queue: DispatchQueue) {
+        queue.async {
+            while !socket.remoteConnectionClosed {
+                var readBuffer = Data()
+                var writeBuffer: Data? = nil
+                do {
+                    _ = try socket.read(into: &readBuffer)
+                    
+                    // Display readBuffer data
+                    print("Read Buffer")
+                    print(String.init(data: readBuffer, encoding: .utf8) ?? readBuffer.debugDescription)
+                    print(readBuffer.map { b in String(format: "%02X", b) }.joined())
+                    
+                    
+                    writeBuffer = Emulator.sharedInstance.processData(stream: readBuffer)
+
+                } catch {
+                    self.displayString("Error while reading from socket %@", error.localizedDescription)
+                    break
+                }
+
+                if (writeBuffer != nil) {
+                    do {
+                        // Display writeBuffer data
+                        print("Write Buffer - raw")
+                        print(String.init(data: writeBuffer!, encoding: .utf8) ?? writeBuffer.debugDescription)
+                        print(writeBuffer!.map { b in String(format: "%02X", b) }.joined())
+
+                        try socket.write(from: writeBuffer!)
+
+                    } catch {
+                        self.displayString("Error while reading from socket %@", error.localizedDescription)
+                        break
+                    }
+                }
+                
+            }
+            
+            // Socket closed
+            self.displayString("Closed connection to %@", socket.remoteHostname)
+            socket.close()
+            self.asyncSocket = nil
+
+        }
     }
 
     override var representedObject: Any? {
@@ -175,86 +241,14 @@ extension ViewController : NetServiceDelegate {
             serverAddresses.append(address)
         }
         
-        if (asyncSocket == nil) {
-            
-            asyncSocket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
-         
-            connectToNextAddress()
-        }
+//        if (asyncSocket == nil) {
+//            
+//            asyncSocket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
+//         
+//            connectToNextAddress()
+//        }
 
     }
 }
 
-extension ViewController : GCDAsyncSocketDelegate {
-    
-    func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
-        displayString("GCDAsyncSocket:  Accepted new socket from %@:%hu", newSocket.connectedHost!, newSocket.connectedPort);
-        
-        // Start new accessory pairing
-        newSocket.readData(withTimeout: -1, tag: 0)
-    }
-    
-    func connectToNextAddress() {
-        // Consume serverAddresses array
-        
-        var done :Bool = false
-        while !done && serverAddresses.count > 0 {
-            
-            if let address = serverAddresses.popLast() {
-            
-                displayString("GCDAsyncSocket: Attempting connection to %@", address.debugDescription)
-                
-                do {
-                    
-                    // Start asyncSocket process
-                    
-                    try asyncSocket.connect(toAddress: address)
-                
-                }
-                catch {
-                    
-                    displayString("GCDAsyncSocket: Error trying to connect via asyncSocket!")
-                    done = true
-                }
-                
-            }
-            
-        }
-        
-        if (!done) {
-            displayString("GCDAsyncSocket: Unable to connect to any resolved address")
-            
-        }
 
-    }
-    
-    func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
-        displayString("GCDAsyncSocket: didConnectTo - %@", url.absoluteString)
-
-        asyncSocket.readData(withTimeout: -1, tag: 99)
-    }
-    
-    func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
-        displayString("GCDAsyncSocket: didConnectToHost - %@", host)
-        
-        asyncSocket.readData(withTimeout: -1, tag: 99)
-    }
-    
-    func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        displayString("GCDAsyncSocket: didRead - %@", data.debugDescription)
-        
-        print(String.init(data: data, encoding: .utf8) ?? data.debugDescription)
-        print(data.map { b in String(format: "%02X", b) }.joined())
-        
-        Emulator.sharedInstance.processData(stream: data)
-        
-    }
-    
-    func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
-        displayString("GCDAsyncSocket: socketDidDisconnect - %@", err?.localizedDescription ?? "unknown error")
-        
-        Emulator.sharedInstance.reset()
-    }
-    
-    
-}

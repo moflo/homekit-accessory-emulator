@@ -37,7 +37,7 @@ class Emulator {
     
     
     // Main TCP packet processing method
-    func processData(stream :Data) {
+    func processData(stream :Data) -> Data {
         
         // Process incoming data with call to C++ HomeKit object
         // Return dictionary of restuls
@@ -56,6 +56,8 @@ class Emulator {
         
         // TCP output callback
         self.writeCallback?( outputBuffer )
+        
+        return outputBuffer
         
     }
     
