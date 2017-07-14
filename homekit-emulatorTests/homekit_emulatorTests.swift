@@ -108,6 +108,7 @@ class homekit_emulatorTests: XCTestCase {
         
     }
     
+    
     func testHAPContoller() {
         
         let cppObject = newHAPController()

@@ -18,15 +18,16 @@ TLV8Class::~TLV8Class()
 
 tlv_result_t TLV8Class::encode(tlv_map_t * map, uint8_t ** stream_ptr, uint32_t * length)
 {
-
+    
     uint8_t * stream = *stream_ptr;
     struct tlv TLV8;
     uint32_t offset = 0;
+    uint32_t data_offset = 0;
     uint8_t previous_type = 0xff;   // Should be an unused type code, assume 0xFF
     uint16_t remaining_bytes = 0;
-
+    
     for (int i = 0; i < map->count; i++) {
-
+        
         TLV8 = map->object[i];
         uint16_t size = TLV8.size;
         uint8_t type = TLV8.type;
@@ -35,9 +36,10 @@ tlv_result_t TLV8Class::encode(tlv_map_t * map, uint8_t ** stream_ptr, uint32_t 
         // Split encoded object into two or more consecutive segments
         previous_type = type;
         remaining_bytes = size;
+        data_offset = 0;
         
         while (remaining_bytes > 0) {
-
+            
             // Initialize or reallocate the stream buffer as needed
             uint16_t data_size = ( remaining_bytes >= MAX_ITEM_SIZE ) ? MAX_ITEM_SIZE : remaining_bytes;
             
@@ -68,23 +70,25 @@ tlv_result_t TLV8Class::encode(tlv_map_t * map, uint8_t ** stream_ptr, uint32_t 
             
             stream[offset] = type;
             stream[offset+1] = data_size;
-            memcpy(stream + offset + 2, data, data_size);
+            memcpy(stream + offset + 2, data + data_offset, data_size);
             
             offset += data_size + 2;
             
             remaining_bytes = remaining_bytes - data_size;
+            
+            data_offset += data_size;
         }
     }
     
     *length = offset;
     *stream_ptr = stream;
     
-   return TLV_SUCESS;
-
+    return TLV_SUCESS;
+    
 }
 
 tlv_result_t TLV8Class::decode(uint8_t * stream, uint16_t length, tlv_map_t * map){
-
+    
     uint8_t previous_type = 0xff;   // Should be an unused type code, assume 0xFF
     uint16_t previous_size = 0;
     
@@ -103,7 +107,7 @@ tlv_result_t TLV8Class::decode(uint8_t * stream, uint16_t length, tlv_map_t * ma
             
             new_tlv = TLVAppendBuffers(old_data, data, type, previous_size, size);
             map->object[ index ] = new_tlv;
-
+            
         }
         else {
             new_tlv = TLVFromBuffer(data, type, size);
@@ -121,14 +125,14 @@ tlv_result_t TLV8Class::decode(uint8_t * stream, uint16_t length, tlv_map_t * ma
         
     }
     
-   return TLV_SUCESS;
-
+    return TLV_SUCESS;
+    
 }
 
 
 tlv_t TLV8Class::TLVFromBuffer(uint8_t * stream, int16_t type, int16_t size)
 {
-
+    
     struct tlv TLV8;
     memset(&TLV8, 0, sizeof(tlv));
     
@@ -138,9 +142,9 @@ tlv_t TLV8Class::TLVFromBuffer(uint8_t * stream, int16_t type, int16_t size)
     
     memcpy(TLV8.data, stream, size);
     
-
+    
     return TLV8;
-
+    
 }
 
 tlv_t TLV8Class::TLVAppendBuffers(uint8_t * stream1, uint8_t * stream2, int16_t type, int16_t size1, int16_t size2)
@@ -170,29 +174,29 @@ tlv_result_t TLV8Class::insert(tlv_map_t * map, tlv_t tlv)
     map->object[ index ] = tlv;
     map->count = index  + 1;
     
-   return TLV_SUCESS;
-
+    return TLV_SUCESS;
+    
 }
 
 uint8_t TLV8Class::getCount(tlv_map_t map)
 {
     return map.count;
-
+    
 }
 
 tlv_t TLV8Class::getTLVAtIndex(tlv_map_t map, uint8_t index)
 {
-
+    
     struct tlv TLV8;
     memset(&TLV8, 0, sizeof(tlv));
-
+    
     if (index <= TLV8_MAP_SIZE)
     {
         TLV8 = map.object[ index ];
     }
     
     return TLV8;
-
+    
 }
 
 tlv_result_t TLV8Class::TLVFree(tlv_map_t * map)
